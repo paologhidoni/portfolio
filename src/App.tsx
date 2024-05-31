@@ -5,9 +5,9 @@ import { SiCodewars, SiLeetcode } from "react-icons/si";
 function App() {
   return (
     <>
-      <main className="bg-blue-950 min-h-screen p-8 pt-16 text-white font-quicksand">
+      <main className="bg-primaryColor min-h-screen p-8 pt-16 text-white font-quicksand">
         <header className="text-center max-w-xl m-auto">
-          <h1 className="text-ocra text-6xl mb-6">
+          <h1 className="text-secondaryColor text-6xl mb-6">
             PAOLO <span className="text-white italic">GHIDONI</span>
           </h1>
           <h3 className="text-3xl mb-6">Full stack developer</h3>

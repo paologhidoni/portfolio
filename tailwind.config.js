@@ -7,8 +7,9 @@ export default {
         quicksand: "quicksand",
       },
       colors: {
+        primaryColor: "#172554",
+        secondaryColor: "#EFC24A",
         burgundy: "#804870",
-        ocra: "#EFC24A",
       },
     },
   },

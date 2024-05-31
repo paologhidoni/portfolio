@@ -3,6 +3,6 @@
 }
 
 .icon:hover {
-  color: theme("colors.ocra");
+  color: theme("colors.secondaryColor");
   transform: scale(1.05);
 }
