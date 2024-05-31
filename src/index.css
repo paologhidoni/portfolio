@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "quicksand";
+  src: url("/quicksand/Quicksand-Regular.otf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "quicksand";
+  src: url("/quicksand/Quicksand-Oblique.otf");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "quicksand";
+  src: url("/quicksand/Quicksand-Bold.otf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "quicksand";
+  src: url("/quicksand/Quicksand-BoldOblique.otf");
+  font-weight: 700;
+  font-style: italic;
+}
