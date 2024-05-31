@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: "quicksand";
-  src: url("/quicksand/Quicksand-Oblique.otf");
+  src: url("/quicksand/Quicksand-Italic.otf");
   font-weight: 400;
   font-style: italic;
 }
@@ -25,7 +25,7 @@
 
 @font-face {
   font-family: "quicksand";
-  src: url("/quicksand/Quicksand-BoldOblique.otf");
+  src: url("/quicksand/Quicksand-BoldItalic.otf");
   font-weight: 700;
   font-style: italic;
 }
