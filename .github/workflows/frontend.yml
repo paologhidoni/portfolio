@@ -1,0 +1,20 @@
+name: frontend
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4 # this action downloads our code on server
+      - name: Set up NodeJs
+        uses: actions/setup-node@v4 # this action sets up node js on the server machine (runner)
+        with:
+          node-version: 20.11.0
+      - name: Install dependencies
+        run: npm ci # this is like npm install but uses the versions specified in package.json
+      - name: Run test
+        run: npm test
