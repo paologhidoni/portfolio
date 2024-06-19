@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch: # this makes it possible to run workflow manually
 
 permissions:
   contents: read
