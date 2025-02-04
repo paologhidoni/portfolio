@@ -1,19 +1,18 @@
-import "./App.css";
+import React from "react";
+import Wrapper from "../../layouts/Wrapper";
 
-import Navigation from "./components/Navigation/Navigation";
-import Hero from "./components/Hero/Hero";
-import Skills from "./components/Skills/Skills";
-
-function App() {
+const Skills: React.FC = () => {
   return (
-    <div id="container" className="bg-primaryColor min-h-screen pb-8 pt-4">
-      <Navigation />
-      <main className="text-white font-quicksand">
-        <Hero />
-        <Skills />
-
-        <h1>PROJECTS</h1>
-        <p id="projects">
+    <>
+      <Wrapper
+        id="skills"
+        bgColor="bg-secondaryColor"
+        skewedTop={true}
+        skewedEnd={true}
+        extraClasses="text-black font-bold"
+      >
+        <h2 className="text-white">SKILLS</h2>
+        <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
           deleniti sunt illo fugit, nostrum libero sed ipsa dolorem architecto?
           Quis, facere delectus dolores rem animi rerum veritatis ipsum
@@ -29,9 +28,9 @@ function App() {
           Officiis, aliquid nulla. Deleniti molestias ipsa fugiat omnis error
           necessitatibus adipisci facere amet quibusdam!
         </p>
-      </main>
-    </div>
+      </Wrapper>
+    </>
   );
-}
+};
 
-export default App;
+export default Skills;

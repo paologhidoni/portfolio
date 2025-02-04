@@ -6,3 +6,16 @@
   color: theme("colors.secondaryColor");
   transform: scale(1.05);
 } */
+/* 
+.skewed {
+  position: relative;
+  transform: skewY(-3deg);
+  height: 100px;
+  width: 100vw;
+}
+
+.skewed > * {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  transform: skewY(3deg);
+} */
