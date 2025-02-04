@@ -69,11 +69,3 @@ jobs:
         env:
           CI: false
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-
-      - name: Commit and push to gh-pages branch
-        run: |
-          git add -A
-          git commit -m "Deploy to GitHub Pages" || echo "No changes to commit"
-          git push --force https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }} gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
