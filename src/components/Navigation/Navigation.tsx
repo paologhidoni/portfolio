@@ -42,10 +42,11 @@ const Navigation: React.FC = () => {
 
   return (
     <Wrapper
+      id="navigation"
       paddingY="py-4"
       extraClasses={`navigation sticky top-0 w-full transition-all duration-300 bg-primaryColor min-h-[60px] ${
         isScrolled ? "bg-opacity-95" : ""
-      }`}
+      } z-[50]`}
     >
       <nav className=" text-white flex justify-center md:justify-between items-center flex-wrap gap-2 sm:gap-4">
         <ul className="flex space-x-4">

@@ -3,8 +3,8 @@ import Wrapper from "../../layouts/Wrapper";
 
 const Hero: React.FC = () => {
   return (
-    <Wrapper paddingY="py-6 md:py-10">
-      <header id="hero" className="text-center max-w-2xl m-auto">
+    <Wrapper id="hero" paddingY="py-6 md:py-10">
+      <header className="text-center max-w-2xl m-auto">
         <h1 className="text-secondaryColor text-3xl md:text-7xl mb-6">
           PAOLO <span className="text-white italic">GHIDONI</span>
           <span className="text-2xl md:text-4xl mt-6 mb-8 block text-white">
