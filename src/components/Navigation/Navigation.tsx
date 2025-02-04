@@ -9,7 +9,7 @@ const Navigation: React.FC = () => {
   const [activeLink, setActiveLink] = useState<string>("");
 
   const handleScroll = () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 60) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
@@ -20,9 +20,15 @@ const Navigation: React.FC = () => {
     const target = e.currentTarget.getAttribute("data-target");
     if (!target) return;
 
+    const navigation = document.querySelector(".navigation");
+    const navHeight = navigation?.getBoundingClientRect().height || 0;
+
     const section = document.getElementById(target);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      window.scrollTo({
+        top: section.offsetTop - navHeight,
+        behavior: "smooth",
+      });
       setActiveLink(target);
     }
   };
@@ -35,55 +41,56 @@ const Navigation: React.FC = () => {
   }, []);
 
   return (
-    <div
-      className={`sticky top-0 w-full transition-all duration-300 bg-primaryColor ${
-        isScrolled ? "bg-opacity-90" : null
+    <Wrapper
+      paddingY="py-4"
+      extraClasses={`navigation sticky top-0 w-full transition-all duration-300 bg-primaryColor min-h-[60px] ${
+        isScrolled ? "bg-opacity-95" : ""
       }`}
-      style={{ minHeight: "60px" }}
     >
-      <Wrapper paddingY="py-4">
-        <nav className=" text-white flex justify-center md:justify-between items-center flex-wrap gap-2 sm:gap-4">
-          <ul className="flex space-x-4">
-            {NAV_LINKS.map((link, i) => (
-              <li
-                key={i + "_" + link.label}
-                className="transition-all duration-300 hover:text-secondaryColor"
+      <nav className=" text-white flex justify-center md:justify-between items-center flex-wrap gap-2 sm:gap-4">
+        <ul className="flex space-x-4">
+          {NAV_LINKS.map((link, i) => (
+            <li
+              key={i + "_" + link.label}
+              className="transition-all duration-300 hover:text-secondaryColor"
+            >
+              <button
+                data-target={link.target}
+                onClick={handleNavigate}
+                className={`${
+                  activeLink === link.target ? "text-secondaryColor" : ""
+                } hover:underline underline-offset-8`}
+                aria-label={`${link.label}. ${
+                  activeLink === link.target ? "Current section." : ""
+                }`}
               >
-                <button
-                  data-target={link.target}
-                  onClick={handleNavigate}
-                  className={`${
-                    activeLink === link.target ? "text-secondaryColor" : ""
-                  } hover:underline underline-offset-8`}
-                >
-                  {link.label}
-                </button>
-              </li>
-            ))}
-          </ul>
+                {link.label}
+              </button>
+            </li>
+          ))}
+        </ul>
 
-          <ul className="flex m-0 space-x-4 items-baseline pb-[2px] justify-center">
-            {SOCIAL_LINKS.map((link, i) => (
-              <li
-                key={i + "_" + link.url}
-                className="transition-all duration-300 hover:text-secondaryColor"
+        <ul className="flex m-0 space-x-4 items-baseline pb-[2px] justify-center">
+          {SOCIAL_LINKS.map((link, i) => (
+            <li
+              key={i + "_" + link.url}
+              className="transition-all duration-300 hover:text-secondaryColor"
+            >
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Opens ${link.name} in a new tab.`}
               >
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Opens ${link.name} in a new tab.`}
-                >
-                  {React.cloneElement(link.icon, {
-                    className: link.className || "w-6 h-6",
-                  })}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </Wrapper>
-    </div>
+                {React.cloneElement(link.icon, {
+                  className: link.className || "w-6 h-6",
+                })}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </Wrapper>
   );
 };
 
