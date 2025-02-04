@@ -45,23 +45,22 @@ jobs:
       - name: Build project
         run: npm run build
 
-    - name: Set up Git user for deployment
-      run: |
-        git config --global user.name "github-actions"
-        git config --global user.email "github-actions@users.noreply.github.com"
+      - name: Set up Git user for deployment
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
 
-    - name: Deploy to GitHub Pages
-      run: |
-        npm run deploy
-      env:
-        CI: false
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to GitHub Pages
+        run: |
+          npm run deploy
+        env:
+          CI: false
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Commit and push to gh-pages branch
-      run: |
-        git add -A
-        git commit -m "Deploy to GitHub Pages" || echo "No changes to commit"
-        git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}EN }}@github.com/${{ github.repository }} gh-pages
-
+      - name: Commit and push to gh-pages branch
+        run: |
+          git add -A
+          git commit -m "Deploy to GitHub Pages" || echo "No changes to commit"
+          git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}EN }}@github.com/${{ github.repository }} gh-pages
