@@ -5,6 +5,7 @@ interface Props {
   paddingX?: string;
   paddingY?: string;
   bgColor?: string;
+  extraClasses?: string;
 }
 
 const Wrapper: React.FC<Props> = ({
@@ -12,8 +13,13 @@ const Wrapper: React.FC<Props> = ({
   paddingX = "px-8",
   paddingY = "py-8",
   bgColor = "bg-primaryColor",
+  extraClasses,
 }) => {
-  return <div className={`${paddingY} ${paddingX} ${bgColor}`}>{children}</div>;
+  return (
+    <div className={`${paddingY} ${paddingX} ${bgColor} ${extraClasses}`}>
+      {children}
+    </div>
+  );
 };
 
 export default Wrapper;
