@@ -1,18 +1,10 @@
-name: frontend
+name: Build Frontend and Deploy to GitHub Pages
+
 on:
   push:
     branches:
       - main
   workflow_dispatch: # this makes it possible to run workflow manually
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
 
 jobs:
   test:
@@ -34,33 +26,35 @@ jobs:
 
   deploy:
     needs: test
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Get code
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Set up NodeJs
-        uses: actions/setup-node@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 20.11.0
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Install gh-pages package
+        run: npm install gh-pages --save-dev
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: "./dist" # Upload dist repository
+      - name: Build project
+        run: npm run build # Adjust this command if you're using another build tool
 
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+        run: |
+          npm run deploy
+        env:
+          CI: false # This is required to prevent a possible "error: no such file" issue on GitHub Actions
+
+      - name: Commit changes to gh-pages branch
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Deploy to GitHub Pages" || echo "No changes to commit"
+          git push --force origin gh-pages
