@@ -63,4 +63,4 @@ jobs:
           git commit -m "Deploy to GitHub Pages" || echo "No changes to commit"
           git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}EN }}@github.com/${{ github.repository }} gh-pages
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
