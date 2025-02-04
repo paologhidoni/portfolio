@@ -34,9 +34,6 @@ jobs:
 
   deploy:
     needs: test
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -56,10 +53,15 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - name: Upload artifact (explicit v4)
+        uses: actions/upload-artifact@v4
         with:
-          # Upload dist repository
+          name: build-artifact
+          path: "./dist"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
           path: "./dist"
 
       - name: Deploy to GitHub Pages
