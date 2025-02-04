@@ -65,7 +65,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          npm run deploy -- --branch gh-pages -d dist
+          npm run deploy -- --branch gh-pages
         env:
           CI: false
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
