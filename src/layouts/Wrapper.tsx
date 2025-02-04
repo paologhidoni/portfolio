@@ -14,7 +14,7 @@ interface Props {
 const Wrapper: React.FC<Props> = ({
   children,
   id,
-  paddingX = "px-8 md:px-24",
+  paddingX = "px-8 md:px-24 lg:px-36",
   paddingY = "py-8",
   bgColor = "bg-primaryColor",
   extraClasses,
