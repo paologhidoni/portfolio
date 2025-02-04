@@ -43,21 +43,19 @@ jobs:
         run: npm install gh-pages --save-dev
 
       - name: Build project
-        run: npm run build # Adjust this command if you're using another build tool
-
-      - name: Set up Git user for deployment
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@users.noreply.github.com"
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         run: |
           npm run deploy
         env:
           CI: false # This is required to prevent a possible "error: no such file" issue on GitHub Actions
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit changes to gh-pages branch
         run: |
           git add -A
           git commit -m "Deploy to GitHub Pages" || echo "No changes to commit"
           git push --force origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
