@@ -48,7 +48,7 @@ const Navigation: React.FC = () => {
         isScrolled ? "bg-opacity-95" : ""
       } z-[50]`}
     >
-      <nav className=" text-white flex justify-center md:justify-between items-center flex-wrap gap-2 sm:gap-4">
+      <nav className=" text-white flex justify-center md:justify-between items-center flex-wrap gap-3 sm:gap-4">
         <ul className="flex space-x-4">
           {NAV_LINKS.map((link, i) => (
             <li
