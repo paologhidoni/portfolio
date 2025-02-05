@@ -13,5 +13,19 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities(
+        {
+          ".clip-polygon-wave-top": {
+            clipPath: "polygon(0 6%, 100% 0, 100% 94%, 0% 100%)",
+          },
+          ".clip-polygon-wave-end": {
+            clipPath: "polygon(0% 0%, 100% 6%, 100% 100%, 0% 94%)",
+          },
+        },
+        ["responsive", "hover"]
+      );
+    },
+  ],
 };
