@@ -26,7 +26,7 @@ const Navigation: React.FC = () => {
     const section = document.getElementById(target);
     if (section) {
       window.scrollTo({
-        top: section.offsetTop - navHeight,
+        top: section.offsetTop - navHeight - 26,
         behavior: "smooth",
       });
       setActiveLink(target);
@@ -46,7 +46,7 @@ const Navigation: React.FC = () => {
       paddingY="py-4"
       extraClasses={`navigation sticky top-0 w-full transition-all duration-300 bg-primaryColor min-h-[60px] ${
         isScrolled ? "bg-opacity-95" : ""
-      } z-[50]`}
+      } z-[1000]`}
     >
       <nav className=" text-white flex justify-center md:justify-between items-center flex-wrap gap-3 sm:gap-4">
         <ul className="flex space-x-4">
@@ -97,8 +97,8 @@ const Navigation: React.FC = () => {
 
 const NAV_LINKS = [
   { label: "About", target: "container" },
-  { label: "Skills", target: "skills" },
   { label: "Projects", target: "projects" },
+  { label: "Skills", target: "skills" },
 ];
 
 const SOCIAL_LINKS = [
