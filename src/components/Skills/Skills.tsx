@@ -1,17 +1,18 @@
 import React from "react";
 import Wrapper from "../../layouts/Wrapper";
+import SectionHeading from "../SectionHeading/SectionHeading";
 
 const Skills: React.FC = () => {
   return (
-    <>
+    <section id="skills" className="relative">
+      <SectionHeading title="Skills" />
+
       <Wrapper
-        id="skills"
-        bgColor="bg-secondaryColor"
+        bgColor="bg-white"
         skewedTop={true}
         skewedEnd={true}
-        extraClasses="text-black font-bold"
+        extraClasses="text-black font-bold text-primaryColor"
       >
-        <h2 className="text-white">SKILLS</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
           deleniti sunt illo fugit, nostrum libero sed ipsa dolorem architecto?
@@ -29,7 +30,7 @@ const Skills: React.FC = () => {
           necessitatibus adipisci facere amet quibusdam!
         </p>
       </Wrapper>
-    </>
+    </section>
   );
 };
 
