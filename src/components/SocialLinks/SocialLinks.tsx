@@ -12,7 +12,7 @@ const SOCIAL_LINKS = [
     name: "LinkedIn",
     icon: <GrLinkedinOption />,
     url: "https://www.linkedin.com/in/paologhidoni/",
-    className: "w-6 md:w-7 h-6 md:h-7",
+    className: "w-6 h-6",
   },
   {
     name: "GitHub",
