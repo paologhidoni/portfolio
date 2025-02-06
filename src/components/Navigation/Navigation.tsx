@@ -49,7 +49,7 @@ const Navigation: React.FC = () => {
       } z-[1000]`}
     >
       <nav className="text-white items-center grid gap-2 sm:grid-rows-2 md:grid-cols-2 md:grid-rows-1">
-        <ul className="flex space-x-4 justify-center md:justify-start">
+        <ul className="text-lg flex space-x-4 justify-center md:justify-start">
           {NAV_LINKS.map((link, i) => (
             <li
               key={i + "_" + link.label}
