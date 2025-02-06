@@ -13,8 +13,6 @@ const Projects: React.FC = () => {
         {projects.map((project, i) => (
           <Wrapper
             key={i + "_" + project.title}
-            skewedTop={true}
-            skewedEnd={true}
             bgColor={i % 2 === 0 ? "bg-secondaryColor" : "bg-primaryColor"}
           >
             <Project
