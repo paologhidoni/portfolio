@@ -51,6 +51,7 @@ const Project: React.FC<Props> = ({
             target="_blank"
             rel="noreferrer"
             className={`${gitHubTxtColor} font-bold underline underline-offset-8 mt-4`}
+            aria-label={`View the ${title} project on GitHub`}
           >
             View on GitHub &rarr;
           </a>{" "}
@@ -59,8 +60,9 @@ const Project: React.FC<Props> = ({
             target="_blank"
             rel="noreferrer"
             className={`${gitHubTxtColor} font-bold underline underline-offset-8 mt-4`}
+            aria-label={`See the ${title} project Live`}
           >
-            See it Live &rarr;
+            See Live &rarr;
           </a>
         </div>
       </div>
