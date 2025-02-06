@@ -9,7 +9,7 @@ const Projects: React.FC = () => {
     <section id="projects" className="relative pb-12 bg-secondaryColor">
       <SectionHeading title="Projects" />
 
-      <ul className="flex flex-col gap-8">
+      <ul className="flex flex-col">
         {projects.map((project, i) => (
           <Wrapper
             key={i + "_" + project.title}
