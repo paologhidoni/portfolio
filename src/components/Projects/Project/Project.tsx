@@ -30,7 +30,7 @@ const Project: React.FC<Props> = ({
     <li id={id} className="flex flex-col md:flex-row gap-8">
       <div className="flex-1">
         <div className="mb-4 px-6 py-12 bg-black bg-opacity-50 clip-polygon-wave-top">
-          <h3 className="text-3xl font-semibold">{title}</h3>
+          <h3 className="text-2xl md:text-3xl font-semibold">{title}</h3>
           <p className="mt-2">{description}</p>
         </div>
 
