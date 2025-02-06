@@ -48,8 +48,8 @@ const Navigation: React.FC = () => {
         isScrolled ? "bg-opacity-95" : ""
       } z-[1000]`}
     >
-      <nav className=" text-white flex justify-center md:justify-between items-center flex-wrap gap-3 sm:gap-4">
-        <ul className="flex space-x-4">
+      <nav className="text-white items-center grid gap-2 sm:grid-rows-2 md:grid-cols-2 md:grid-rows-1">
+        <ul className="flex space-x-4 justify-center md:justify-start">
           {NAV_LINKS.map((link, i) => (
             <li
               key={i + "_" + link.label}
@@ -71,7 +71,7 @@ const Navigation: React.FC = () => {
           ))}
         </ul>
 
-        <ul className="flex m-0 space-x-4 items-baseline pb-[2px] justify-center">
+        <ul className="flex m-0 space-x-4 items-baseline pb-[2px] justify-center md:justify-end">
           {SOCIAL_LINKS.map((link, i) => (
             <li
               key={i + "_" + link.url}
