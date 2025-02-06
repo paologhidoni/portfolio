@@ -7,8 +7,6 @@ interface Props {
   paddingY?: string;
   bgColor?: string;
   extraClasses?: string;
-  skewedTop?: boolean;
-  skewedEnd?: boolean;
 }
 
 const Wrapper: React.FC<Props> = ({
