@@ -15,6 +15,8 @@ import playwrightImg from "../../assets/playwright.png";
 import figmaImg from "../../assets/figma.png";
 import gitImg from "../../assets/git.png";
 import tailwindImg from "../../assets/tailwind.png";
+import jestImg from "../../assets/jest.png";
+import nextImg from "../../assets/next.png";
 
 const Skills: React.FC = () => {
   return (
@@ -60,12 +62,17 @@ const Skills: React.FC = () => {
           />
           <img
             src={reactImg}
-            alt="React"
+            alt="React.js"
             className="w-20 h-auto justify-self-center"
           />
           <img
             src={angularImg}
-            alt="Angular"
+            alt="Angular.js"
+            className="w-20 h-auto justify-self-center"
+          />
+          <img
+            src={nextImg}
+            alt="Next.js"
             className="w-20 h-auto justify-self-center"
           />
           <img
@@ -91,6 +98,11 @@ const Skills: React.FC = () => {
           <img
             src={playwrightImg}
             alt="Playwright"
+            className="w-20 h-auto justify-self-center"
+          />
+          <img
+            src={jestImg}
+            alt="Jest"
             className="w-20 h-auto justify-self-center"
           />
           <img
