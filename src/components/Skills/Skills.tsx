@@ -15,6 +15,8 @@ import playwrightImg from "../../assets/playwright.png";
 import figmaImg from "../../assets/figma.png";
 import gitImg from "../../assets/git.png";
 import tailwindImg from "../../assets/tailwind.png";
+import jestImg from "../../assets/jest.png";
+import nextImg from "../../assets/next.png";
 
 const Skills: React.FC = () => {
   return (
@@ -60,12 +62,17 @@ const Skills: React.FC = () => {
           />
           <img
             src={reactImg}
-            alt="React"
+            alt="React.js"
             className="w-20 h-auto justify-self-center"
           />
           <img
             src={angularImg}
-            alt="Angular"
+            alt="Angular.js"
+            className="w-20 h-auto justify-self-center"
+          />
+          <img
+            src={nextImg}
+            alt="Next.js"
             className="w-20 h-auto justify-self-center"
           />
           <img
@@ -94,27 +101,16 @@ const Skills: React.FC = () => {
             className="w-20 h-auto justify-self-center"
           />
           <img
+            src={jestImg}
+            alt="Jest"
+            className="w-20 h-auto justify-self-center"
+          />
+          <img
             src={tailwindImg}
             alt="Tailwind"
             className="w-20 h-auto justify-self-center"
           />
         </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-          deleniti sunt illo fugit, nostrum libero sed ipsa dolorem architecto?
-          Quis, facere delectus dolores rem animi rerum veritatis ipsum
-          reprehenderit quisquam. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Minus debitis id nemo molestiae quam nihil eos
-          dolores non, obcaecati aut repellat odit vel reprehenderit eveniet ea,
-          vero tempore, nostrum est. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Maxime velit vel sed praesentium, placeat ducimus
-          vero facilis eligendi assumenda id! Voluptatem reiciendis natus
-          assumenda architecto eveniet dolorem! Repudiandae, repellendus
-          numquam. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Provident voluptas neque deserunt pariatur, vitae officia incidunt.
-          Officiis, aliquid nulla. Deleniti molestias ipsa fugiat omnis error
-          necessitatibus adipisci facere amet quibusdam!
-        </p>
       </Wrapper>
     </section>
   );
