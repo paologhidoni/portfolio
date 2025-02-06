@@ -44,8 +44,6 @@ const Skills: React.FC = () => {
 
       <Wrapper
         bgColor="bg-white"
-        skewedTop={true}
-        skewedEnd={true}
         extraClasses="text-black font-bold text-primaryColor"
       >
         <div className="grid grid-cols-4 md:grid-cols-5 gap-12 py-12">
