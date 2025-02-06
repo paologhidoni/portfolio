@@ -46,16 +46,17 @@ const Skills: React.FC = () => {
         bgColor="bg-white"
         extraClasses="text-black font-bold text-primaryColor"
       >
-        <div className="grid grid-cols-4 md:grid-cols-5 gap-12 py-12">
+        <ul className="grid grid-cols-4 md:grid-cols-5 gap-12 pt-6">
           {skills.map((skill, index) => (
-            <img
-              key={skill + "_" + index}
-              src={skill.img}
-              alt={skill.name}
-              className="w-20 h-auto justify-self-center"
-            />
+            <li key={index + "_" + skill.name}>
+              <img
+                src={skill.img}
+                alt={skill.name}
+                className="w-20 h-auto justify-self-center"
+              />
+            </li>
           ))}
-        </div>
+        </ul>
       </Wrapper>
     </section>
   );

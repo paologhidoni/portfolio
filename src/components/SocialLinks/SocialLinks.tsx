@@ -12,25 +12,25 @@ const SOCIAL_LINKS = [
     name: "LinkedIn",
     icon: <GrLinkedinOption />,
     url: "https://www.linkedin.com/in/paologhidoni/",
-    className: "w-7 h-7",
+    className: "w-6 md:w-7 h-6 md:h-7",
   },
   {
     name: "GitHub",
     icon: <VscGithub />,
     url: "https://github.com/paologhidoni",
-    className: "w-6 h-6",
+    className: "w-5 md:w-6 h-5 md:w-6",
   },
   {
     name: "Leetcode",
     icon: <SiLeetcode />,
     url: "https://leetcode.com/u/IamPaolo/",
-    className: "w-6 h-6",
+    className: "w-5 md:w-6 h-5 md:w-6",
   },
   {
     name: "Code Wars",
     icon: <SiCodewars />,
     url: "https://www.codewars.com/users/PaoloGhidoni",
-    className: "w-6 h-6",
+    className: "w-5 md:w-6 h-5 md:w-6",
   },
 ];
 
@@ -51,7 +51,7 @@ const SocialLinks: React.FC<Props> = ({
             aria-label={`Opens ${link.name} in a new tab.`}
           >
             {React.cloneElement(link.icon, {
-              className: link.className || "w-6 h-6",
+              className: link.className || "w-3 md:w-6 h-3 md:h-6",
             })}
           </a>
         </li>
