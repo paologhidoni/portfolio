@@ -4,11 +4,11 @@ import scrollDown from "../../assets/scroll-down.gif";
 
 const Hero: React.FC = () => {
   return (
-    <Wrapper id="hero" paddingY="pt-6 pb-20 md:pb-34 md:pt-10">
+    <Wrapper id="about" paddingY="pt-6 pb-20 md:pb-34 md:pt-10">
       <header className="text-center max-w-2xl m-auto">
         <h1 className="text-secondaryColor text-4xl md:text-7xl">
           PAOLO <span className="text-white italic">GHIDONI</span>
-          <span className="text-2xl md:text-4xl mt-6 mb-8 block text-white">
+          <span className="text-2xl md:text-4xl mt-4 mb-8 block text-white">
             Full Stack Developer
           </span>
         </h1>
