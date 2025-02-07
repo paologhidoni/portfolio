@@ -34,7 +34,7 @@ const Project: React.FC<Props> = ({
         </div>
 
         <ul className="mb-4 flex gap-2 flex-wrap">
-          {technologies.map((tech, i) => (
+          {technologies.map((tech) => (
             <li
               key={tech}
               className={`text-md font-bold px-2 py-1 rounded ${textColor} ${bgColor}`}
