@@ -6,6 +6,7 @@ const Navigation: React.FC = () => {
   const [isScrolledNav, setIsScrolledNav] = useState(false);
   const [activeLink, setActiveLink] = useState<string>("about");
   const navRef = useRef<HTMLDivElement | null>(null);
+  const isNavigating = useRef(false);
 
   const getPositionFromTop = (target: string) => {
     const section = document.getElementById(target);
@@ -15,9 +16,11 @@ const Navigation: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (isNavigating.current) return; // Prevent running while navigating
+
       const navHeight = navRef.current?.getBoundingClientRect().height || 0;
-      const projectsScrollY = getPositionFromTop("projects");
-      const skillsScrollY = getPositionFromTop("skills");
+      const projectsPositionY = getPositionFromTop("projects");
+      const skillsPositionY = getPositionFromTop("skills");
 
       // If the user has scrolled past the nav height, set `isScrolledNav` to `true` (makes it semi-transparent).
       // Otherwise, only update the state if it was previously `true`, ensuring unnecessary re-renders are avoided.
@@ -26,11 +29,12 @@ const Navigation: React.FC = () => {
       );
 
       // set active link on user scroll, only when there are changes from prev state
-      if (window.scrollY < projectsScrollY) {
+      if (window.scrollY < projectsPositionY) {
         setActiveLink((prev) => (prev !== "about" ? "about" : prev));
       } else if (
-        window.scrollY >= projectsScrollY &&
-        window.scrollY < skillsScrollY
+        // - 50 is to compensate skills not being "tall" enough to trigger it as active link, will remove when skills is "tall" enough
+        window.scrollY >= projectsPositionY - 50 &&
+        window.scrollY < skillsPositionY - 50
       ) {
         setActiveLink((prev) => (prev !== "projects" ? "projects" : prev));
       } else {
@@ -48,11 +52,18 @@ const Navigation: React.FC = () => {
     const target = e.currentTarget.getAttribute("data-target");
     if (!target) return;
 
+    isNavigating.current = true;
+
     window.scrollTo({
       top: getPositionFromTop(target),
       behavior: "smooth",
     });
     setActiveLink(target);
+
+    // Re-enable handleScroll after the scrolling animation (~600ms for smooth behavior)
+    setTimeout(() => {
+      isNavigating.current = false;
+    }, 600);
   };
 
   return (
