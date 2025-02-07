@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 interface Props {
   children: React.ReactNode;
@@ -9,21 +9,26 @@ interface Props {
   extraClasses?: string;
 }
 
-const Wrapper: React.FC<Props> = ({
-  children,
-  id = "",
-  paddingX = "px-8 md:px-24 lg:px-36",
-  paddingY = "py-16",
-  bgColor = "bg-primaryColor",
-  extraClasses,
-}) => {
-  const wrappingElClass = `relative ${paddingY} ${paddingX} ${bgColor} ${extraClasses}`;
+const Wrapper = forwardRef<HTMLDivElement, Props>(
+  (
+    {
+      children,
+      id = "",
+      paddingX = "px-8 md:px-24 lg:px-36",
+      paddingY = "py-16",
+      bgColor = "bg-primaryColor",
+      extraClasses,
+    },
+    ref
+  ) => {
+    const wrappingElClass = `relative ${paddingY} ${paddingX} ${bgColor} ${extraClasses}`;
 
-  return (
-    <div id={id} className={wrappingElClass}>
-      {children}
-    </div>
-  );
-};
+    return (
+      <div id={id} ref={ref} className={wrappingElClass}>
+        {children}
+      </div>
+    );
+  }
+);
 
 export default Wrapper;
