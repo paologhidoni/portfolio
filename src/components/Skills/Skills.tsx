@@ -35,14 +35,6 @@ const skills = [
   { name: "Playwright", img: playwrightImg },
   { name: "Jest", img: jestImg },
   { name: "Tailwind", img: tailwindImg },
-
-  { name: "TypeScript", img: typescriptImg },
-  { name: "AWS", img: awsImg },
-  { name: "Figma", img: figmaImg },
-  { name: "Cypress", img: cypressImg },
-  { name: "Playwright", img: playwrightImg },
-  { name: "Jest", img: jestImg },
-  { name: "Tailwind", img: tailwindImg },
 ];
 
 const Skills: React.FC = () => {
