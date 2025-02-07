@@ -8,7 +8,7 @@ interface Props {
   technologies: string[];
   github: string;
   live: string;
-  i: number;
+  isOdd: boolean;
 }
 
 const Project: React.FC<Props> = ({
@@ -19,12 +19,11 @@ const Project: React.FC<Props> = ({
   technologies,
   github,
   live,
-  i,
+  isOdd,
 }) => {
-  const isOdd = i % 2 !== 0;
   const textColor = isOdd ? "text-primaryColor" : "text-secondaryColor";
   const bgColor = isOdd ? "bg-secondaryColor" : "bg-primaryColor";
-  const gitHubTxtColor = isOdd ? "text-secondaryColor" : "text-primaryColor";
+  const linkTxtColor = isOdd ? "text-secondaryColor" : "text-primaryColor";
 
   return (
     <li id={id} className="flex flex-col md:flex-row gap-8">
@@ -37,7 +36,7 @@ const Project: React.FC<Props> = ({
         <ul className="mb-4 flex gap-2 flex-wrap">
           {technologies.map((tech, i) => (
             <li
-              key={i + "_" + tech}
+              key={tech}
               className={`text-md font-bold px-2 py-1 rounded ${textColor} ${bgColor}`}
             >
               {tech}
@@ -50,16 +49,16 @@ const Project: React.FC<Props> = ({
             href={github}
             target="_blank"
             rel="noreferrer"
-            className={`${gitHubTxtColor} font-bold underline underline-offset-8 mt-4`}
+            className={`${linkTxtColor} font-bold underline underline-offset-8 mt-4`}
             aria-label={`View the ${title} project on GitHub`}
           >
             View on GitHub &rarr;
-          </a>{" "}
+          </a>
           <a
             href={live}
             target="_blank"
             rel="noreferrer"
-            className={`${gitHubTxtColor} font-bold underline underline-offset-8 mt-4`}
+            className={`${linkTxtColor} font-bold underline underline-offset-8 mt-4`}
             aria-label={`See the ${title} project Live`}
           >
             See Live &rarr;
@@ -68,11 +67,19 @@ const Project: React.FC<Props> = ({
       </div>
 
       <div className="flex-1">
-        <img
-          src={image}
-          alt={title}
-          className={`w-full h-56 md:h-72 object-cover object-top rounded-lg border-2 border-s-8 border-e-8 shadow-sm border-white`}
-        />
+        <a
+          href={live}
+          target="_blank"
+          rel="noreferrer"
+          className={`${linkTxtColor} font-bold underline underline-offset-8 mt-4`}
+          aria-label={`See the ${title} project Live`}
+        >
+          <img
+            src={image}
+            alt={title}
+            className={`w-full h-56 md:h-72 object-cover object-top rounded-lg border-2 border-s-8 border-e-8 shadow-sm border-white transition-all duration-500 hover:scale-[100.5%] hover:shadow-lg hover:shadow-gray-600`}
+          />
+        </a>
       </div>
     </li>
   );
