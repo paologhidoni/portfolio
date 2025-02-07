@@ -60,10 +60,10 @@ const Navigation: React.FC = () => {
     });
     setActiveLink(target);
 
-    // Re-enable handleScroll after the scrolling animation (~600ms for smooth behavior)
+    // Re-enable handleScroll after the scrolling animation (~600ms for smooth behavior, 700 to avoid glitch)
     setTimeout(() => {
       isNavigating.current = false;
-    }, 600);
+    }, 700);
   };
 
   return (
