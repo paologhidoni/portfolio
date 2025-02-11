@@ -9,7 +9,7 @@ export const projects = [
     id: "project-1",
     title: "Tic Tac Toe",
     description:
-      "I built a Tic Tac Toe game to have fun and practive react, Typescript and styling.",
+      "I built a Tic Tac Toe game to have fun and practice React, Typescript and styling.",
     image: ticTacToeImg,
     technologies: ["React", "Typescript"],
     github: "https://github.com/paologhidoni/tictactoe",
