@@ -11,7 +11,7 @@ export const projects = [
     description:
       "I built a Tic Tac Toe game to have fun and practice React, Typescript and styling.",
     image: ticTacToeImg,
-    technologies: ["React", "Typescript"],
+    technologies: ["React", "Typescript", "Css"],
     github: "https://github.com/paologhidoni/tictactoe",
     live: "https://paologhidoni.github.io/tictactoe/",
   },
