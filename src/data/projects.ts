@@ -12,7 +12,7 @@ export const projects = [
     description:
       "An investment calculator app that helps users plan their investments by allowing them to input key parameters such as initial investment, annual contribution, expected return, and investment duration. The app performs basic validation to ensure all fields are correctly filled, providing real-time feedback on any errors. Once the form is completed and valid, the app processes the investment parameters and presents a detailed data breakdown and an interactive chart to visualize the investment growth over time.",
     image: workInProgressImg,
-    technologies: ["React", "Typescript", "Tailwind", "HighCharts"],
+    technologies: ["React", "TypeScript", "Tailwind", "HighCharts"],
     github: "https://github.com/paologhidoni/investmentcalculator",
     live: "https://paologhidoni.github.io/investmentcalculator/",
   },
