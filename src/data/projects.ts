@@ -3,16 +3,17 @@ import musicPlayerImg from "../assets/music-player.png";
 import facQuestImg from "../assets/facquest.png";
 import facApplicationImg from "../assets/facApplication.png";
 import ticTacToeImg from "../assets/tictactoe.png";
-import workInProgressImg from "../assets/inprogress.jpg";
+import investmentImg from "../assets/investmentcalculator.png";
+// import workInProgressImg from "../assets/inprogress.jpg";
 
 export const projects = [
   {
     id: "project-1",
-    title: "Investment Calculator - [ in progress ]",
+    title: "Investment Calculator",
     description:
-      "An investment calculator app that helps users plan their investments by allowing them to input key parameters such as initial investment, annual contribution, expected return, and investment duration. The app performs basic validation to ensure all fields are correctly filled, providing real-time feedback on any errors. Once the form is completed and valid, the app processes the investment parameters and presents a detailed data breakdown and an interactive chart to visualize the investment growth over time.",
-    image: workInProgressImg,
-    technologies: ["React", "TypeScript", "Tailwind", "HighCharts"],
+      "An investment calculator app that helps users visualize investment growth by inputting initial investment, annual contributions, expected return, and investment duration. The app provides a yearly breakdown of investment, returns, and total value, displayed in an interactive line chart. It is fully responsive and accessible, allowing users to toggle chart metrics, view results in their chosen currency, and interact with the app in an intuitive, user-friendly way.",
+    image: investmentImg,
+    technologies: ["React", "TypeScript", "Tailwind", "Recharts"],
     github: "https://github.com/paologhidoni/investmentcalculator",
     live: "https://paologhidoni.github.io/investmentcalculator/",
   },
