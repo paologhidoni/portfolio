@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# My Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio website! This site showcases my work, the technologies I use, and provides links to my professional profiles. [Click here to see it live.](https://paologhidoni.github.io/portfolio/)
 
-Currently, two official plugins are available:
+## 🚀 Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** + **TypeScript** for a robust and scalable frontend
+- **Tailwind CSS** for modern and responsive styling
 
-## Expanding the ESLint configuration
+## 📌 Sections
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 🛠 Demo Projects
 
-- Configure the top-level `parserOptions` property like this:
+This section highlights some of my projects, each with:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- A brief description
+- A link to the GitHub repository
+- A link to the live deployed app
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### ⚡ Quick Tech Stack Overview
+
+A concise summary of the technologies and tools I frequently use.
+
+### 📎 Header & Footer
+
+Both include links to my professional profiles:
+
+- [LinkedIn](https://www.linkedin.com/in/paologhidoni/)
+- [GitHub](https://github.com/paologhidoni)
+- [LeetCode](https://leetcode.com/u/IamPaolo/)
+- [CodeWars](https://www.codewars.com/users/PaoloGhidoni)
+
+---
+
+Feel free to explore and connect with me!
