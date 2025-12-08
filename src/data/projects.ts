@@ -12,9 +12,9 @@ export const projects = [
     id: "project-7",
     title: "GameKit",
     description:
-      "A React and TypeScript game data browser utilizing the RAWG API. GameKit delivers fast, reliable data fetching and caching with TanStack Query, structured routing using React Router and a sleek, responsive design crafted with Tailwind CSS and Lucide iconography, complete with custom theme support.",
+      "A full-stack Game Discovery Platform built with React and TypeScript, featuring Vercel serverless functions and Supabase for authentication and user data storage. GameKit fetches and displays comprehensive game data from the RAWG API, delivers fast, reliable data fetching with TanStack Query, structured routing via React Router and a sleek, responsive design crafted with Tailwind CSS and Lucide icons, complete with multiple custom themes.",
     image: gamekitImg,
-    technologies: ["React", "React Router", "TanStack Query", "TypeScript", "Tailwind", "RAWG api", "Lucide"],
+    technologies: ["React", "React Router", "TanStack Query", "TypeScript", "Tailwind", "RAWG API", "Lucide", "Supabase", "Vercel Serverless Functions"],
     github: "https://github.com/paologhidoni/gamekit",
     live: "https://gamekit-7h67h9ioc-paologhidonis-projects.vercel.app/",
   },
