@@ -16,7 +16,7 @@ export const projects = [
     image: gamekitImg,
     technologies: ["React", "React Router", "TanStack Query", "TypeScript", "Tailwind", "RAWG api", "Lucide"],
     github: "https://github.com/paologhidoni/gamekit",
-    live: "https://paologhidoni.github.io/gamekit/",
+    live: "https://gamekit-7h67h9ioc-paologhidonis-projects.vercel.app/",
   },
   {
     id: "project-6",
