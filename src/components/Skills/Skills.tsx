@@ -18,6 +18,7 @@ import tailwindImg from "../../assets/tailwind.png";
 import jestImg from "../../assets/jest.png";
 import nextImg from "../../assets/next.png";
 import styledComponentsImg from "../../assets/styled-components.png";
+import pythonImg from "../../assets/python.png";
 
 const skills = [
   { name: "HTML", img: htmlImg },
@@ -37,6 +38,7 @@ const skills = [
   { name: "Jest", img: jestImg },
   { name: "Tailwind", img: tailwindImg },
   { name: "Styled Components", img: styledComponentsImg },
+  { name: "Python", img: pythonImg },
 ];
 
 const Skills: React.FC = () => {
