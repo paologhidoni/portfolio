@@ -22,7 +22,7 @@ export const projects = [
     id: "project-6",
     title: "Investment Calculator",
     description:
-      "An investment calculator app that helps users visualize investment growth by inputting initial investment, annual contributions, expected return, and investment duration. The app provides a yearly breakdown of investment, returns, and total value, displayed in an interactive line chart. It is fully responsive and accessible, allowing users to toggle chart metrics, view results in their chosen currency and interact with the app in an intuitive, user-friendly way.",
+      "An investment calculator app that helps users visualize investment growth by inputting initial investment, annual contributions, expected return and investment duration. The app provides a yearly breakdown of investment, returns and total value, displayed in an interactive line chart. It is fully responsive and accessible, allowing users to toggle chart metrics, view results in their chosen currency and interact with the app in an intuitive, user-friendly way.",
     image: investmentImg,
     technologies: ["React", "TypeScript", "Tailwind", "Recharts"],
     github: "https://github.com/paologhidoni/investmentcalculator",

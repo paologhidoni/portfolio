@@ -1,6 +1,6 @@
 # My Portfolio Website
 
-Welcome to my personal portfolio website! This site showcases my work, the technologies I use, and provides links to my professional profiles. [Click here to see it live.](https://paologhidoni.github.io/portfolio/)
+Welcome to my personal portfolio website! This site showcases my work, the technologies I use and provides links to my professional profiles. [Click here to see it live.](https://paologhidoni.github.io/portfolio/)
 
 ## 🚀 Technologies Used
 
