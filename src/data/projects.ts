@@ -8,13 +8,25 @@ import investmentImg from "../assets/investmentcalculator.png";
 import gamekitImg from "../assets/gamekit.png";
 
 export const projects = [
-    {
+  {
     id: "project-7",
     title: "GameKit",
     description:
-      "A full-stack Game Discovery Platform built with React and TypeScript, featuring Vercel serverless functions and Supabase for authentication and user data storage. GameKit fetches and displays comprehensive game data from the RAWG API, delivers fast, reliable data fetching with TanStack Query, structured routing via React Router and a sleek, responsive design crafted with Tailwind CSS and Lucide icons, complete with multiple custom themes.",
+      "A full-stack Game Discovery Platform featuring AI-powered natural language search built with React, TypeScript and OpenAI GPT-4o-mini. Discover games through conversational queries like 'cozy RPG games on Game Boy' with intelligent LLM validation, hybrid scoring algorithms and distributed rate limiting via Upstash Redis. Integrates Vercel serverless functions, Supabase authentication, RAWG API, TanStack Query for state management and a responsive Tailwind CSS design with custom themes.",
     image: gamekitImg,
-    technologies: ["React", "React Router", "TanStack Query", "TypeScript", "Tailwind", "RAWG API", "Lucide", "Supabase", "Vercel Serverless Functions"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "OpenAI GPT-4o-mini",
+      "Vercel Serverless Functions",
+      "Upstash Redis",
+      "TanStack Query",
+      "React Router",
+      "Tailwind",
+      "RAWG API",
+      "Supabase",
+      "Lucide",
+    ],
     github: "https://github.com/paologhidoni/gamekit",
     live: "https://gamekit-six.vercel.app/",
   },
