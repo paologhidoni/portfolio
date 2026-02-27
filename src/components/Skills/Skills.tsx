@@ -19,26 +19,28 @@ import jestImg from "../../assets/jest.png";
 import nextImg from "../../assets/next.png";
 import styledComponentsImg from "../../assets/styled-components.png";
 import pythonImg from "../../assets/python.png";
+import openAiImg from "../../assets/openai-icon.svg";
 
 const skills = [
+  { name: "OpenAi", img: openAiImg },
+  { name: "React.js", img: reactImg },
+  { name: "Next.js", img: nextImg },
+  { name: "Tailwind", img: tailwindImg },
+  { name: "TypeScript", img: typescriptImg },
+  { name: "Styled Components", img: styledComponentsImg },
+  { name: "Python", img: pythonImg },
+  { name: "Node.js", img: nodeImg },
+  { name: "AWS", img: awsImg },
+  { name: "Playwright", img: playwrightImg },
+  { name: "Cypress", img: cypressImg },
+  { name: "Jest", img: jestImg },
+  { name: "Angular.js", img: angularImg },
+  { name: "Figma", img: figmaImg },
+  { name: "Git", img: gitImg },
   { name: "HTML", img: htmlImg },
   { name: "CSS", img: cssImg },
   { name: "JavaScript", img: jsImg },
   { name: "Sass", img: sassImg },
-  { name: "Git", img: gitImg },
-  { name: "Node.js", img: nodeImg },
-  { name: "React.js", img: reactImg },
-  { name: "Angular.js", img: angularImg },
-  { name: "Next.js", img: nextImg },
-  { name: "TypeScript", img: typescriptImg },
-  { name: "AWS", img: awsImg },
-  { name: "Figma", img: figmaImg },
-  { name: "Cypress", img: cypressImg },
-  { name: "Playwright", img: playwrightImg },
-  { name: "Jest", img: jestImg },
-  { name: "Tailwind", img: tailwindImg },
-  { name: "Styled Components", img: styledComponentsImg },
-  { name: "Python", img: pythonImg },
 ];
 
 const Skills: React.FC = () => {
