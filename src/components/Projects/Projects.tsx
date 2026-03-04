@@ -23,6 +23,7 @@ const Projects: React.FC = () => {
               technologies={project.technologies}
               github={project.github}
               live={project.live}
+              aiPowered={project.aiPowered}
               isOdd={i % 2 !== 0}
             />
           </Wrapper>

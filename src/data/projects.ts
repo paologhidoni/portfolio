@@ -29,6 +29,7 @@ export const projects = [
     ],
     github: "https://github.com/paologhidoni/gamekit",
     live: "https://gamekit-six.vercel.app/",
+    aiPowered: true,
   },
   {
     id: "project-6",

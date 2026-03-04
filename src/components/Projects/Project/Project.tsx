@@ -1,4 +1,5 @@
 import React from "react";
+import AiIcon from "../../../assets/ai-white.svg";
 
 interface Props {
   id: string;
@@ -9,6 +10,7 @@ interface Props {
   github: string;
   live: string;
   isOdd: boolean;
+  aiPowered?: boolean;
 }
 
 const Project: React.FC<Props> = ({
@@ -20,6 +22,7 @@ const Project: React.FC<Props> = ({
   github,
   live,
   isOdd,
+  aiPowered,
 }) => {
   const textColor = isOdd ? "text-primaryColor" : "text-secondaryColor";
   const bgColor = isOdd ? "bg-secondaryColor" : "bg-primaryColor";
@@ -71,13 +74,23 @@ const Project: React.FC<Props> = ({
           href={live}
           target="_blank"
           rel="noreferrer"
-          className={`${linkTxtColor} font-bold underline underline-offset-8 mt-4`}
+          className={`block relative overflow-hidden rounded-lg shadow-sm transition-all duration-500 hover:scale-[100.5%] hover:shadow-lg hover:shadow-gray-600`}
           aria-label={`See the ${title} project Live`}
         >
+          {/* Ai Ribbon Wrap Badge */}
+          {aiPowered && (
+            <div className="absolute top-[28px] -right-[40px] w-[180px] py-1.5 bg-gradient-to-r from-blue-600 to-purple-700 rotate-45 shadow-xl flex items-center justify-center gap-2 border-y border-blue-400/30 z-10">
+              <img src={AiIcon} alt="AI" className="w-6 h-6" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.1em]">
+                Powered
+              </span>
+            </div>
+          )}
+
           <img
             src={image}
             alt={title}
-            className={`w-full h-56 md:h-72 object-cover object-top rounded-lg border-2 border-s-8 border-e-8 shadow-sm border-white transition-all duration-500 hover:scale-[100.5%] hover:shadow-lg hover:shadow-gray-600`}
+            className="w-full h-56 md:h-72 object-cover object-top border-2 border-s-8 border-e-8 border-white"
           />
         </a>
       </div>
