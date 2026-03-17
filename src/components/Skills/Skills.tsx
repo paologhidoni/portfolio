@@ -20,8 +20,10 @@ import nextImg from "../../assets/next.png";
 import styledComponentsImg from "../../assets/styled-components.png";
 import pythonImg from "../../assets/python.png";
 import openAiImg from "../../assets/openai-icon.svg";
+import langchainImg from "../../assets/langchain.svg";
 
 const skills = [
+  { name: "LangChain", img: langchainImg },
   { name: "OpenAi", img: openAiImg },
   { name: "React.js", img: reactImg },
   { name: "Next.js", img: nextImg },
