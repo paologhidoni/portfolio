@@ -12,7 +12,7 @@ export const projects = [
     id: "project-7",
     title: "GameKit",
     description:
-      "A full-stack Game Discovery Platform featuring AI-powered natural language search built with React, TypeScript and OpenAI GPT-4o-mini. Discover games through conversational queries like 'cozy RPG games on Game Boy' with intelligent LLM validation, hybrid scoring algorithms and distributed rate limiting via Upstash Redis. Each game also offers an AI assistant with threaded follow-ups for detailed questions. Integrates Vercel serverless functions, Supabase authentication, RAWG API, TanStack Query for state management and a responsive Tailwind CSS design with custom themes.",
+      "A full-stack Game Discovery Platform featuring AI-powered natural language search built with React, TypeScript and OpenAI GPT-4o-mini. Discover games through conversational queries like 'cozy RPG games on Game Boy' with intelligent LLM validation, hybrid scoring algorithms and distributed rate limiting via Upstash Redis. Each game also offers an AI assistant with threaded follow-ups for detailed questions. Integrates Vercel serverless functions, Supabase authentication, RAWG API, TanStack Query for state management and a responsive Tailwind CSS design with custom themes. Automated testing via GitHub Actions workflow using Vitest for unit and API coverage and Playwright for end-to-end browser flows.",
     image: gamekitImg,
     technologies: [
       "React",
@@ -26,6 +26,9 @@ export const projects = [
       "RAWG API",
       "Supabase",
       "Lucide",
+      "Vitest",
+      "Playwright",
+      "GitHub Actions",
     ],
     github: "https://github.com/paologhidoni/gamekit",
     live: "https://gamekit-six.vercel.app/",
