@@ -7,8 +7,9 @@ interface Props {
   description: string;
   image: string;
   technologies: string[];
-  github: string;
+  github?: string;
   live: string;
+  website?: string;
   isOdd: boolean;
   aiPowered?: boolean;
 }
@@ -21,12 +22,27 @@ const Project: React.FC<Props> = ({
   technologies,
   github,
   live,
+  website,
   isOdd,
   aiPowered,
 }) => {
   const textColor = isOdd ? "text-primaryColor" : "text-secondaryColor";
   const bgColor = isOdd ? "bg-secondaryColor" : "bg-primaryColor";
   const linkTxtColor = isOdd ? "text-secondaryColor" : "text-primaryColor";
+  // Primary link config
+  const primaryLink = github
+    ? {
+        href: github,
+        label: "View on GitHub",
+        ariaLabel: `View the ${title} project on GitHub`,
+      }
+    : website
+      ? {
+          href: website,
+          label: "View Website",
+          ariaLabel: `View the ${title} project website`,
+        }
+      : null;
 
   return (
     <li id={id} className="flex flex-col md:flex-row gap-8">
@@ -47,16 +63,20 @@ const Project: React.FC<Props> = ({
           ))}
         </ul>
 
+        {/* Project links */}
         <div className="flex justify-between flex-wrap">
-          <a
-            href={github}
-            target="_blank"
-            rel="noreferrer"
-            className={`${linkTxtColor} font-bold underline underline-offset-8 mt-4`}
-            aria-label={`View the ${title} project on GitHub`}
-          >
-            View on GitHub &rarr;
-          </a>
+          {/* Primary repository/website link */}
+          {primaryLink ? (
+            <a
+              href={primaryLink.href}
+              target="_blank"
+              rel="noreferrer"
+              className={`${linkTxtColor} font-bold underline underline-offset-8 mt-4`}
+              aria-label={primaryLink.ariaLabel}
+            >
+              {primaryLink.label} &rarr;
+            </a>
+          ) : null}
           <a
             href={live}
             target="_blank"
@@ -69,6 +89,7 @@ const Project: React.FC<Props> = ({
         </div>
       </div>
 
+      {/* Project preview */}
       <div className="flex-1">
         <a
           href={live}
