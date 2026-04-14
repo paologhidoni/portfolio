@@ -1,7 +1,7 @@
 import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
 import Hero from "./components/Hero/Hero";
-import Projects from "./components/Projects/Projects";
+import WorkAndProjects from "./components/Projects/Projects";
 import Skills from "./components/Skills/Skills";
 import Footer from "./components/Footer/Footer";
 
@@ -11,7 +11,7 @@ function App() {
       <Navigation />
       <main className="text-white font-quicksand">
         <Hero />
-        <Projects />
+        <WorkAndProjects />
         <Skills />
       </main>
       <Footer />

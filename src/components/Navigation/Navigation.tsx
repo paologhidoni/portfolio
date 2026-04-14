@@ -19,7 +19,7 @@ const Navigation: React.FC = () => {
       if (isNavigating.current) return; // Prevent running while navigating
 
       const navHeight = navRef.current?.getBoundingClientRect().height || 0;
-      const projectsPositionY = getPositionFromTop("projects");
+      const workProjectsPositionY = getPositionFromTop("work-projects");
       const skillsPositionY = getPositionFromTop("skills");
 
       // If the user has scrolled past the nav height, set `isScrolledNav` to `true` (makes it semi-transparent).
@@ -29,14 +29,16 @@ const Navigation: React.FC = () => {
       );
 
       // set active link on user scroll, only when there are changes from prev state
-      if (window.scrollY < projectsPositionY) {
+      if (window.scrollY < workProjectsPositionY) {
         setActiveLink((prev) => (prev !== "about" ? "about" : prev));
       } else if (
         // - 50 is to compensate skills not being "tall" enough to trigger it as active link, will remove when skills is "tall" enough
-        window.scrollY >= projectsPositionY - 50 &&
+        window.scrollY >= workProjectsPositionY - 50 &&
         window.scrollY < skillsPositionY - 50
       ) {
-        setActiveLink((prev) => (prev !== "projects" ? "projects" : prev));
+        setActiveLink((prev) =>
+          prev !== "work-projects" ? "work-projects" : prev
+        );
       } else {
         setActiveLink((prev) => (prev !== "skills" ? "skills" : prev));
       }
@@ -106,7 +108,7 @@ const Navigation: React.FC = () => {
 
 const NAV_LINKS = [
   { label: "About", target: "about" },
-  { label: "Projects", target: "projects" },
+  { label: "Work & Projects", target: "work-projects" },
   { label: "Skills", target: "skills" },
 ];
 
