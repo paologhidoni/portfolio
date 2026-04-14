@@ -7,6 +7,7 @@ import investmentImg from "../assets/investmentcalculator.png";
 // import workInProgressImg from "../assets/inprogress.jpg";
 import gamekitImg from "../assets/gamekit.png";
 import hairTrackerImg from "../assets/hairtracker.png";
+import policyInPracticeImg from "../assets/policyinpractice.png";
 
 export interface ProjectData {
   id: string;
@@ -22,10 +23,10 @@ export interface ProjectData {
 
 export const projects: ProjectData[] = [
   {
-    id: "project-8",
+    id: "project-9",
     title: "HairTracker",
     description:
-      "I worked as a contract Full-Stack Developer on HairTracker. HairTracker is a modern, easy-to-use app that puts you in charge of your client records. It lets you securely store everything you need in one place, from hair photos and formulas to detailed client notes, all from your phone or tablet. No more guessing what you did last time, and no more awkward moments forgetting a client's colour or cut. With HairTracker, you'll walk into every appointment confident, prepared, and professional.",
+      "I worked as a contract Full-Stack Developer on HairTracker. HairTracker is a modern, easy-to-use app that puts you in charge of your client records. It lets you securely store everything you need in one place, from hair photos and formulas to detailed client notes, all from your phone or tablet. No more guessing what you did last time and no more awkward moments forgetting a client's colour or cut. With HairTracker, you'll walk into every appointment confident, prepared and professional.",
     image: hairTrackerImg,
     technologies: [
       "React Native",
@@ -49,7 +50,7 @@ export const projects: ProjectData[] = [
     live: "https://play.google.com/store/apps/details?id=app.hairtracker&pli=1",
   },
   {
-    id: "project-7",
+    id: "project-8",
     title: "GameKit",
     description:
       "A full-stack Game Discovery Platform featuring AI-powered natural language search built with React, TypeScript and OpenAI GPT-4o-mini. Discover games through conversational queries like 'cozy RPG games on Game Boy' with intelligent LLM validation, hybrid scoring algorithms and distributed rate limiting via Upstash Redis. Each game also offers an AI assistant with threaded follow-ups for detailed questions. Integrates Vercel serverless functions, Supabase authentication, RAWG API, TanStack Query for state management and a responsive Tailwind CSS design with custom themes. Automated testing via GitHub Actions workflow using Vitest for unit and API coverage and Playwright for end-to-end browser flows.",
@@ -73,6 +74,30 @@ export const projects: ProjectData[] = [
     github: "https://github.com/paologhidoni/gamekit",
     live: "https://gamekit-six.vercel.app/",
     aiPowered: true,
+  },
+  {
+    id: "project-7",
+    title: "Policy in Practice",
+    description:
+      "Worked as a full-time Full-Stack Developer on Policy in Practice’s Better Off Calculator, a SaaS web application that helps users navigate the benefits system, checks eligibility for national benefit schemes and local support and generates personalised outcomes for approximately 3 million people each year through the UK government website GOV.UK and a network of more than 300 client organisations.",
+    image: policyInPracticeImg,
+    technologies: [
+      "Angular",
+      "TypeScript",
+      "Highcharts",
+      "AWS Lambda",
+      "AWS S3",
+      "AWS Cognito",
+      "AWS DynamoDB",
+      "Playwright",
+      "Mocha",
+      "Chai",
+      "Sinon",
+      "Jest",
+      "GitHub Actions",
+    ],
+    website: "https://policyinpractice.co.uk/better-off-calculator",
+    live: "https://www.betteroffcalculator.co.uk/login",
   },
   {
     id: "project-6",
