@@ -6,8 +6,48 @@ import ticTacToeImg from "../assets/tictactoe.png";
 import investmentImg from "../assets/investmentcalculator.png";
 // import workInProgressImg from "../assets/inprogress.jpg";
 import gamekitImg from "../assets/gamekit.png";
+import hairTrackerImg from "../assets/hairtracker.png";
 
-export const projects = [
+export interface ProjectData {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  github?: string;
+  live: string;
+  website?: string;
+  aiPowered?: boolean;
+}
+
+export const projects: ProjectData[] = [
+  {
+    id: "project-8",
+    title: "HairTracker",
+    description:
+      "I worked as Full-Stack Developer on HairTracker. HairTracker is a modern, easy-to-use app that puts you in charge of your client records. It lets you securely store everything you need in one place, from hair photos and formulas to detailed client notes, all from your phone or tablet. No more guessing what you did last time, and no more awkward moments forgetting a client's colour or cut. With HairTracker, you'll walk into every appointment confident, prepared, and professional.",
+    image: hairTrackerImg,
+    technologies: [
+      "React Native",
+      "TypeScript",
+      "Zustand",
+      "Expo EAS",
+      "Expo Router",
+      "AWS Lambda",
+      "AWS S3",
+      "AWS Cognito",
+      "AWS DynamoDB",
+      "Deep Linking",
+      "Google OAuth",
+      "Apple Sign-In (OAuth)",
+      "Biometric Authentication",
+      "Zod",
+      "Maestro",
+      "GitHub Actions",
+    ],
+    website: "https://hairtracker.app/",
+    live: "https://play.google.com/store/apps/details?id=app.hairtracker&pli=1",
+  },
   {
     id: "project-7",
     title: "GameKit",
