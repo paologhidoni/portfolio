@@ -85,6 +85,7 @@ export const projects: ProjectData[] = [
       "Angular",
       "TypeScript",
       "Highcharts",
+      "Bootstrap",
       "AWS Lambda",
       "AWS S3",
       "AWS Cognito",
