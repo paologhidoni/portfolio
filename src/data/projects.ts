@@ -25,7 +25,7 @@ export const projects: ProjectData[] = [
     id: "project-8",
     title: "HairTracker",
     description:
-      "I worked as Full-Stack Developer on HairTracker. HairTracker is a modern, easy-to-use app that puts you in charge of your client records. It lets you securely store everything you need in one place, from hair photos and formulas to detailed client notes, all from your phone or tablet. No more guessing what you did last time, and no more awkward moments forgetting a client's colour or cut. With HairTracker, you'll walk into every appointment confident, prepared, and professional.",
+      "I worked as a contract Full-Stack Developer on HairTracker. HairTracker is a modern, easy-to-use app that puts you in charge of your client records. It lets you securely store everything you need in one place, from hair photos and formulas to detailed client notes, all from your phone or tablet. No more guessing what you did last time, and no more awkward moments forgetting a client's colour or cut. With HairTracker, you'll walk into every appointment confident, prepared, and professional.",
     image: hairTrackerImg,
     technologies: [
       "React Native",
