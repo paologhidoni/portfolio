@@ -8,6 +8,9 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "/portfolio/",
   plugins: [react()],
+  build: {
+    target: "es2020",
+  },
   test: {
     globals: true,
     environment: "jsdom",
