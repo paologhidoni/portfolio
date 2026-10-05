@@ -22,6 +22,8 @@ import pythonImg from "../../assets/python.png";
 import openAiImg from "../../assets/openai-icon.svg";
 import langchainImg from "../../assets/langchain.svg";
 import expoImg from "../../assets/expo.webp";
+import githubActionsImg from "../../assets/githubactions.png";
+import maestroImg from "../../assets/meastro.jpg";
 
 type SkillItem = { name: string; img: string };
 
@@ -31,9 +33,8 @@ const skillGroups: SkillGroup[] = [
   {
     title: "Mobile",
     skills: [
-      { name: "React.js", img: reactImg },
-      { name: "TypeScript", img: typescriptImg },
-      { name: "Expo / RN", img: expoImg },
+      { name: "React Native", img: reactImg },
+      { name: "Expo", img: expoImg },
     ],
   },
   {
@@ -47,6 +48,9 @@ const skillGroups: SkillGroup[] = [
   {
     title: "Web",
     skills: [
+      { name: "TypeScript", img: typescriptImg },
+
+      { name: "React.js", img: reactImg },
       { name: "Next.js", img: nextImg },
       { name: "Tailwind", img: tailwindImg },
       { name: "Angular", img: angularImg },
@@ -56,14 +60,20 @@ const skillGroups: SkillGroup[] = [
       { name: "JavaScript", img: jsImg },
       { name: "Sass", img: sassImg },
       { name: "Node.js", img: nodeImg },
-      { name: "Figma", img: figmaImg },
     ],
+  },
+  {
+    title: "Design",
+    skills: [{ name: "Figma", img: figmaImg }],
   },
   {
     title: "Cloud / QA / Ops",
     skills: [
-      { name: "AWS", img: awsImg },
       { name: "Expo EAS", img: expoImg },
+
+      { name: "AWS", img: awsImg },
+      { name: "GitHub Actions", img: githubActionsImg },
+      { name: "Maestro", img: maestroImg },
       { name: "Playwright", img: playwrightImg },
       { name: "Cypress", img: cypressImg },
       { name: "Jest", img: jestImg },
