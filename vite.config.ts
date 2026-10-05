@@ -11,6 +11,12 @@ export default defineConfig({
   build: {
     target: "es2020",
   },
+  // esbuild 0.28+ cannot downlevel nested destructuring in react-icons during pre-bundle
+  optimizeDeps: {
+    esbuildOptions: {
+      target: "esnext",
+    },
+  },
   test: {
     globals: true,
     environment: "jsdom",

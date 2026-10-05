@@ -1,7 +1,5 @@
 import huksoImg from "../assets/hukso.png";
 import musicPlayerImg from "../assets/music-player.png";
-import facQuestImg from "../assets/facquest.png";
-import facApplicationImg from "../assets/facApplication.png";
 import ticTacToeImg from "../assets/tictactoe.png";
 import investmentImg from "../assets/investmentcalculator.png";
 // import workInProgressImg from "../assets/inprogress.jpg";
@@ -165,25 +163,5 @@ export const projects: ProjectData[] = [
     technologies: ["Html", "JavaScript", "Css"],
     github: "https://github.com/paologhidoni/musicplayer",
     live: "https://paologhidoni.github.io/musicplayer/",
-  },
-  {
-    id: "project-2",
-    title: "Founders & Coders Quest",
-    description:
-      "A text based adventure game coded during the Founders and Coders bootcamp to learn React.",
-    image: facQuestImg,
-    technologies: ["React"],
-    github: "https://github.com/fac-23/week5-react-paolo-miah",
-    live: "https://sleepy-meitner-5e2ffb.netlify.app/",
-  },
-  {
-    id: "project-1",
-    title: "F&C Application website",
-    description:
-      "A website I built to apply for the Founders and Coders Bootcamp in London. I enjoyed exploring some less commonly used APIs, such as the Intersection Observer and the Web Audio API.",
-    image: facApplicationImg,
-    technologies: ["Html", "Sass", "Javasript"],
-    github: "https://github.com/paologhidoni/fac-application",
-    live: "https://paologhidoni.github.io/fac-application/",
   },
 ];
