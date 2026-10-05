@@ -8,6 +8,7 @@ import investmentImg from "../assets/investmentcalculator.png";
 import gamekitImg from "../assets/gamekit.png";
 import hairTrackerImg from "../assets/hairtracker.png";
 import policyInPracticeImg from "../assets/policyinpractice.png";
+import aiBudgetImg from "../assets/aibudget.webp";
 
 export interface ProjectData {
   id: string;
@@ -22,6 +23,31 @@ export interface ProjectData {
 }
 
 export const projects: ProjectData[] = [
+  {
+    id: "project-10",
+    title: "AiBudget",
+    description:
+      "A privacy-first expense tracker I built with React Native and Expo. A client-side financial assistant answers in charts, tables and budget cards instead of long text walls. I fine-tuned Qwen 2.5 0.5B with LoRA for fully offline intent on native, published the shipped GGUF on Hugging Face and wired a controlled generative UI layer so the model picks tools while SQLite stays on device. Includes API agent mode, automated evals and a live web demo on GitHub Pages plus an installable Android build.",
+    image: aiBudgetImg,
+    technologies: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "SQLite",
+      "Zustand",
+      "Zod",
+      "llama.rn",
+      "LoRA",
+      "OpenAI API",
+      "Generative UI",
+      "Vitest",
+      "GitHub Actions",
+      "Hugging Face",
+    ],
+    github: "https://github.com/paologhidoni/ai-budget",
+    live: "https://paologhidoni.github.io/ai-budget/",
+    aiPowered: true,
+  },
   {
     id: "project-9",
     title: "HairTracker",
