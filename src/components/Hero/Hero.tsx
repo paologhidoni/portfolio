@@ -8,8 +8,8 @@ const Hero: React.FC = () => {
       <header className="text-center max-w-2xl m-auto">
         <h1 className="text-secondaryColor text-4xl md:text-7xl">
           PAOLO <span className="text-white italic">GHIDONI</span>
-          <span className="text-2xl md:text-4xl mt-4 mb-8 block text-white">
-            Full Stack Developer
+          <span className="text-xl md:text-3xl mt-4 mb-8 block text-white leading-snug">
+            Full-stack engineer · agentic AI · React Native
           </span>
         </h1>
 

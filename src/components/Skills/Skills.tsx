@@ -21,50 +21,96 @@ import styledComponentsImg from "../../assets/styled-components.png";
 import pythonImg from "../../assets/python.png";
 import openAiImg from "../../assets/openai-icon.svg";
 import langchainImg from "../../assets/langchain.svg";
+import expoImg from "../../assets/expo.webp";
 
-const skills = [
-  { name: "LangChain", img: langchainImg },
-  { name: "OpenAi", img: openAiImg },
-  { name: "React.js", img: reactImg },
-  { name: "Next.js", img: nextImg },
-  { name: "Tailwind", img: tailwindImg },
-  { name: "TypeScript", img: typescriptImg },
-  { name: "Styled Components", img: styledComponentsImg },
-  { name: "Python", img: pythonImg },
-  { name: "Node.js", img: nodeImg },
-  { name: "AWS", img: awsImg },
-  { name: "Playwright", img: playwrightImg },
-  { name: "Cypress", img: cypressImg },
-  { name: "Jest", img: jestImg },
-  { name: "Angular.js", img: angularImg },
-  { name: "Figma", img: figmaImg },
-  { name: "Git", img: gitImg },
-  { name: "HTML", img: htmlImg },
-  { name: "CSS", img: cssImg },
-  { name: "JavaScript", img: jsImg },
-  { name: "Sass", img: sassImg },
+type SkillItem = { name: string; img: string };
+
+type SkillGroup = { title: string; skills: SkillItem[] };
+
+const skillGroups: SkillGroup[] = [
+  {
+    title: "Mobile",
+    skills: [
+      { name: "React.js", img: reactImg },
+      { name: "TypeScript", img: typescriptImg },
+      { name: "Expo / RN", img: expoImg },
+    ],
+  },
+  {
+    title: "AI / Agentic",
+    skills: [
+      { name: "OpenAI", img: openAiImg },
+      { name: "LangChain", img: langchainImg },
+      { name: "Python", img: pythonImg },
+    ],
+  },
+  {
+    title: "Web",
+    skills: [
+      { name: "Next.js", img: nextImg },
+      { name: "Tailwind", img: tailwindImg },
+      { name: "Angular", img: angularImg },
+      { name: "Styled Components", img: styledComponentsImg },
+      { name: "HTML", img: htmlImg },
+      { name: "CSS", img: cssImg },
+      { name: "JavaScript", img: jsImg },
+      { name: "Sass", img: sassImg },
+      { name: "Node.js", img: nodeImg },
+      { name: "Figma", img: figmaImg },
+    ],
+  },
+  {
+    title: "Cloud / QA / Ops",
+    skills: [
+      { name: "AWS", img: awsImg },
+      { name: "Expo EAS", img: expoImg },
+      { name: "Playwright", img: playwrightImg },
+      { name: "Cypress", img: cypressImg },
+      { name: "Jest", img: jestImg },
+      { name: "Git", img: gitImg },
+    ],
+  },
 ];
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="relative">
+    <section id="skills" className="relative pb-16">
       <SectionHeading title="Skills" />
 
       <Wrapper
         bgColor="bg-white"
         extraClasses="text-black font-bold text-primaryColor"
+        paddingY="py-12 md:py-16"
       >
-        <ul className="grid grid-cols-4 md:grid-cols-5 gap-12 pt-6">
-          {skills.map((skill, index) => (
-            <li key={index + "_" + skill.name}>
-              <img
-                src={skill.img}
-                alt={skill.name}
-                className="w-20 h-auto justify-self-center"
-              />
-            </li>
+        {/* Skill groups */}
+        <div className="space-y-10 max-w-4xl mx-auto">
+          {skillGroups.map((group) => (
+            <div key={group.title}>
+              <h3 className="text-lg md:text-xl mb-4 text-center md:text-left border-b border-primaryColor/20 pb-2">
+                {group.title}
+              </h3>
+              <ul className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 md:gap-8">
+                {group.skills.map((skill) => (
+                  <li
+                    key={`${group.title}-${skill.name}`}
+                    className="flex flex-col items-center gap-2 text-center"
+                  >
+                    <img
+                      src={skill.img}
+                      alt=""
+                      className="w-14 h-14 md:w-16 md:h-16 object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span className="text-xs md:text-sm font-semibold leading-tight">
+                      {skill.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </Wrapper>
     </section>
   );
