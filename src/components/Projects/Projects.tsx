@@ -1,20 +1,14 @@
 import React from "react";
-import Wrapper from "../../layouts/Wrapper";
 import Project from "./Project/Project";
-import SectionHeading from "../SectionHeading/SectionHeading";
 import { projects } from "../../data/projects";
 
 const WorkAndProjects: React.FC = () => {
   return (
-    <section id="work-projects" className="relative pb-12 bg-secondaryColor">
-      <SectionHeading title="Work & Projects" />
-
-      <ul className="flex flex-col">
-        {projects.map((project, i) => (
-          <Wrapper
-            key={i + "_" + project.title}
-            bgColor={i % 2 === 0 ? "bg-secondaryColor" : "bg-primaryColor"}
-          >
+    <section id="work-projects" className="relative bg-surface pb-12 md:pb-16">
+      {/* Full-bleed cards; last matches Skills top radius */}
+      <ul className="flex flex-col gap-0">
+        {projects.map((project, index) => (
+          <li key={project.id}>
             <Project
               id={project.id}
               title={project.title}
@@ -25,9 +19,11 @@ const WorkAndProjects: React.FC = () => {
               live={project.live}
               website={project.website}
               aiPowered={project.aiPowered}
-              isOdd={i % 2 !== 0}
+              roundBottom={index === projects.length - 1}
+              altSurface={index % 2 === 1}
+              sectionLabel={index === 0 ? "Work & Projects" : undefined}
             />
-          </Wrapper>
+          </li>
         ))}
       </ul>
     </section>

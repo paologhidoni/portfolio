@@ -3,7 +3,7 @@ import App from "./App";
 
 it("Should render the main heading of the website", () => {
   render(<App></App>);
-  const heading = screen.queryByText("PAOLO");
+  const heading = screen.queryByText("Paolo");
 
   expect(heading).toBeVisible();
 });

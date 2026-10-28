@@ -1,31 +1,21 @@
 import React from "react";
 import Wrapper from "../../layouts/Wrapper";
 import SocialLinks from "../SocialLinks/SocialLinks";
-import { CgChevronDoubleUp } from "react-icons/cg";
 
 const Footer: React.FC = () => {
-  const handleScrollToTop = () => {
-    const section = document.getElementById("container");
-
-    if (section) {
-      window.scrollTo({
-        top: section.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
-    <section id="footer">
-      <div className="p-6 bg-secondaryColor"></div>
-
-      <Wrapper extraClasses="text-white text-center pb-0 pt-8">
-        <CgChevronDoubleUp
-          onClick={handleScrollToTop}
-          className="w-8 h-8 inline mb-6 cursor-pointer"
+    <section id="footer" className="section-chrome site-footer">
+      <Wrapper
+        extraClasses="pb-12 pt-10 text-center md:pb-14 md:pt-12"
+        bgColor="bg-transparent"
+        paddingY="py-0"
+      >
+        {/* Social + copyright — theme tokens via section-chrome / site-footer */}
+        <SocialLinks
+          justify="justify-center"
+          className="footer-social text-ink"
         />
-        <SocialLinks justify="justify-center" />
-        <span className="block mt-3">
+        <span className="footer-copy mt-4 block text-sm">
           &copy; Paolo Ghidoni {new Date().getFullYear()}
         </span>
       </Wrapper>

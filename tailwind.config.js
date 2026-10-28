@@ -1,4 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+
+// Comma-separated RGB channels so rgba(var(--x), a) works everywhere
+const withOpacity = (variable) => {
+  return ({ opacityValue }) =>
+    opacityValue === undefined
+      ? `rgb(var(${variable}))`
+      : `rgba(var(${variable}), ${opacityValue})`;
+};
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -7,9 +16,17 @@ export default {
         quicksand: "quicksand",
       },
       colors: {
-        primaryColor: "#172554",
-        secondaryColor: "#EFC24A",
+        canvas: withOpacity("--color-canvas"),
+        primaryColor: withOpacity("--color-primary"),
+        secondaryColor: withOpacity("--color-secondary"),
+        ink: withOpacity("--color-ink"),
+        muted: withOpacity("--color-muted"),
+        surface: withOpacity("--color-surface"),
+        surfaceRaised: withOpacity("--color-surface-raised"),
         burgundy: "#804870",
+      },
+      boxShadow: {
+        card: "0 1px 2px rgba(23, 37, 84, 0.04), 0 18px 40px rgba(23, 37, 84, 0.08)",
       },
     },
   },

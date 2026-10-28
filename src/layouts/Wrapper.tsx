@@ -14,9 +14,9 @@ const Wrapper = forwardRef<HTMLDivElement, Props>(
     {
       children,
       id = "",
-      paddingX = "px-8 md:px-24 lg:px-36",
+      paddingX = "px-5 md:px-10 lg:px-14 xl:px-16",
       paddingY = "py-16",
-      bgColor = "bg-primaryColor",
+      bgColor = "bg-canvas",
       extraClasses,
     },
     ref

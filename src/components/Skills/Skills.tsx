@@ -84,44 +84,51 @@ const skillGroups: SkillGroup[] = [
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="relative pb-16">
-      <SectionHeading title="Skills" />
+    <section
+      id="skills"
+      className="project-surface relative overflow-hidden rounded-t-[2rem] pb-12 pt-16 text-ink md:rounded-t-[2.5rem] md:pb-16 md:pt-20"
+    >
+      {/* Above pattern wash */}
+      <div className="relative z-10">
+        <SectionHeading title="Skills" variant="onLight" />
 
-      <Wrapper
-        bgColor="bg-white"
-        extraClasses="text-black font-bold text-primaryColor"
-        paddingY="py-12 md:py-16"
-      >
-        {/* Skill groups */}
-        <div className="space-y-10 max-w-4xl mx-auto">
-          {skillGroups.map((group) => (
-            <div key={group.title}>
-              <h3 className="text-lg md:text-xl mb-4 text-center md:text-left border-b border-primaryColor/20 pb-2">
-                {group.title}
-              </h3>
-              <ul className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 md:gap-8">
-                {group.skills.map((skill) => (
-                  <li
-                    key={`${group.title}-${skill.name}`}
-                    className="flex flex-col items-center gap-2 text-center"
-                  >
-                    <img
-                      src={skill.img}
-                      alt=""
-                      className="w-14 h-14 md:w-16 md:h-16 object-contain"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <span className="text-xs md:text-sm font-semibold leading-tight">
-                      {skill.name}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </Wrapper>
+        <Wrapper
+          bgColor="bg-transparent"
+          extraClasses="text-ink"
+          paddingX="px-5 md:px-10 lg:px-14"
+          paddingY="py-0"
+        >
+          {/* Skill groups */}
+          <div className="mx-auto max-w-6xl space-y-12 md:space-y-14">
+            {skillGroups.map((group) => (
+              <div key={group.title}>
+                <h3 className="mb-5 text-center text-xs font-bold uppercase tracking-[0.16em] text-ink md:mb-6 md:text-sm">
+                  {group.title}
+                </h3>
+                <ul className="grid grid-cols-3 gap-5 sm:grid-cols-4 md:grid-cols-5 md:gap-7">
+                  {group.skills.map((skill) => (
+                    <li
+                      key={`${group.title}-${skill.name}`}
+                      className="flex flex-col items-center gap-3 rounded-2xl bg-surfaceRaised p-4 text-center shadow-md md:p-5"
+                    >
+                      <img
+                        src={skill.img}
+                        alt=""
+                        className="h-11 w-11 object-contain md:h-12 md:w-12"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span className="text-[11px] font-bold leading-tight text-ink md:text-xs">
+                        {skill.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </Wrapper>
+      </div>
     </section>
   );
 };

@@ -5,6 +5,7 @@ import { GrLinkedinOption } from "react-icons/gr";
 
 interface Props {
   justify?: string;
+  className?: string;
 }
 
 const SOCIAL_LINKS = [
@@ -36,9 +37,12 @@ const SOCIAL_LINKS = [
 
 const SocialLinks: React.FC<Props> = ({
   justify = "justify-center md:justify-end",
+  className = "text-white",
 }) => {
   return (
-    <ul className={`flex m-0 space-x-4 items-baseline pb-[2px] ${justify}`}>
+    <ul
+      className={`m-0 flex items-baseline space-x-4 pb-[2px] ${justify} ${className}`}
+    >
       {SOCIAL_LINKS.map((link, i) => (
         <li
           key={i + "_" + link.url}
@@ -51,7 +55,10 @@ const SocialLinks: React.FC<Props> = ({
             aria-label={`Opens ${link.name} in a new tab.`}
           >
             {React.cloneElement(link.icon, {
-              className: link.className || "w-3 md:w-6 h-3 md:h-6",
+              className: [
+                link.className || "w-3 md:w-6 h-3 md:h-6",
+                "text-current",
+              ].join(" "),
             })}
           </a>
         </li>

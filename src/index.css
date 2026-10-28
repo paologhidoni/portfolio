@@ -2,30 +2,274 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Paths include Vite base (/portfolio/) so fonts load in dev + GH Pages */
 @font-face {
   font-family: "quicksand";
-  src: url("/quicksand/Quicksand-Regular.otf");
+  src: url("/portfolio/quicksand/Quicksand-Variable.ttf") format("truetype");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "quicksand";
+  src: url("/portfolio/quicksand/Quicksand-Regular.otf");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "quicksand";
-  src: url("/quicksand/Quicksand-Italic.otf");
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "quicksand";
-  src: url("/quicksand/Quicksand-Bold.otf");
+  src: url("/portfolio/quicksand/Quicksand-Bold.otf");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "quicksand";
-  src: url("/quicksand/Quicksand-BoldItalic.otf");
+  src: url("/portfolio/quicksand/Quicksand-Italic.otf");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "quicksand";
+  src: url("/portfolio/quicksand/Quicksand-BoldItalic.otf");
   font-weight: 700;
   font-style: italic;
+  font-display: swap;
+}
+
+/* Light theme (default) — bright content, navy shell */
+:root {
+  /* Comma-separated for rgba(var(--x), a) */
+  --color-canvas: 13, 27, 42;
+  --color-primary: 13, 27, 42;
+  --color-secondary: 201, 169, 110;
+  --color-ink: 13, 27, 42;
+  --color-muted: 71, 85, 105;
+  --color-surface: 248, 250, 252;
+  --color-surface-raised: 255, 255, 255;
+
+  --project-surface-bg: #f4f6f8;
+  --project-grid: rgba(13, 27, 42, 0.055);
+  --project-wash-from: rgba(255, 255, 255, 0.72);
+  --project-wash-to: rgba(255, 255, 255, 0.55);
+  --project-wash-alt-from: rgba(255, 255, 255, 0.97);
+  --project-wash-alt-to: rgba(255, 255, 255, 0.9);
+  --skill-pill-bg: rgba(255, 255, 255, 0.95);
+  --skill-pill-alt-bg: rgba(13, 27, 42, 0.12);
+  --skill-pill-color: #0d1b2a;
+
+  --hero-photo-opacity: 0.72;
+  --hero-scrim-base: rgba(13, 27, 42, 0.76);
+  --hero-scrim-mid: rgba(13, 27, 42, 0.68);
+  --hero-scrim-edge: rgba(13, 27, 42, 0.84);
+  --hero-scrim-vignette: rgba(13, 27, 42, 0.48);
+}
+
+/* Dark atelier — warm charcoal + bright ivory text */
+[data-theme="dark"] {
+  --color-canvas: 14, 12, 10;
+  --color-primary: 24, 22, 19;
+  --color-secondary: 201, 169, 110;
+  --color-ink: 247, 243, 236;
+  --color-muted: 180, 174, 165;
+  /* Section chrome matches canvas — no bright bands */
+  --color-surface: 14, 12, 10;
+  --color-surface-raised: 32, 29, 26;
+
+  --project-surface-bg: #12100e;
+  --project-grid: rgba(247, 243, 236, 0.06);
+  --project-wash-from: rgba(18, 16, 14, 0.88);
+  --project-wash-to: rgba(10, 9, 8, 0.96);
+  --project-wash-alt-from: rgba(22, 20, 17, 0.92);
+  --project-wash-alt-to: rgba(8, 7, 6, 0.98);
+  --skill-pill-bg: rgba(247, 243, 236, 0.1);
+  --skill-pill-alt-bg: rgba(247, 243, 236, 0.16);
+  --skill-pill-color: #f7f3ec;
+
+  --hero-photo-opacity: 0.68;
+  --hero-scrim-base: rgba(10, 9, 8, 0.78);
+  --hero-scrim-mid: rgba(12, 10, 9, 0.7);
+  --hero-scrim-edge: rgba(8, 7, 6, 0.86);
+  --hero-scrim-vignette: rgba(6, 5, 4, 0.5);
+}
+
+@layer base {
+  /* Shell matches footer (surface) — no white in card gutters */
+  html {
+    background-color: rgb(var(--color-surface));
+  }
+
+  body {
+    @apply antialiased;
+    background-color: rgb(var(--color-surface));
+    min-height: 100%;
+  }
+
+  #root {
+    min-height: 100%;
+  }
+}
+
+/* Solid nav — canvas shell; beats stray bg-transparent utilities */
+.site-nav {
+  background-color: rgb(var(--color-canvas)) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+[data-theme="dark"] .site-nav {
+  border-bottom-color: rgba(247, 243, 236, 0.1);
+}
+
+.site-nav .nav-link {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.site-nav .nav-link:hover {
+  color: rgb(var(--color-secondary));
+}
+
+.site-nav .nav-link.is-active {
+  color: rgb(var(--color-secondary));
+  font-weight: 700;
+}
+
+.site-nav .nav-icon-btn {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.site-nav .nav-icon-btn:hover {
+  color: rgb(var(--color-secondary));
+}
+
+.site-nav .nav-social {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.site-nav .nav-social a:hover {
+  color: rgb(var(--color-secondary));
+}
+
+/* Hero — architecture photo + faded dark scrim for white copy */
+.hero-backdrop img.hero-photo {
+  opacity: var(--hero-photo-opacity);
+}
+
+.hero-scrim-stack {
+  position: absolute;
+  inset: 0;
+  background: var(--hero-scrim-base);
+}
+
+.hero-scrim-stack::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--hero-scrim-mid) 0%,
+    var(--hero-scrim-edge) 100%
+  );
+}
+
+.hero-scrim-stack::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Edges open up so skyscrapers read; center stays under base + gradient */
+  background: radial-gradient(
+    ellipse 95% 75% at 50% 38%,
+    transparent 0%,
+    transparent 32%,
+    var(--hero-scrim-vignette) 100%
+  );
+}
+
+/* Light section bands (Work heading, footer, etc.) */
+.section-chrome {
+  background-color: rgb(var(--color-surface));
+  color: rgb(var(--color-ink));
+}
+
+.site-footer .footer-copy {
+  color: rgb(var(--color-muted));
+}
+
+.site-footer .footer-social svg {
+  fill: currentColor;
+}
+
+/* Pills dropping into place (jar fill) — global so inline animationName works */
+@keyframes pill-drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.85);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(3px) scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.pill-drop {
+  opacity: 0;
+  transform: translateY(-18px) scale(0.85);
+}
+
+.pill-drop-in {
+  /* both = stay hidden during delay, then hold final state */
+  animation: pill-drop-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Project card: fine grid + theme wash */
+.project-surface {
+  background-color: var(--project-surface-bg);
+  background-image:
+    linear-gradient(var(--project-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--project-grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  position: relative;
+  /* Belt-and-suspenders: never inherit black on dark surfaces */
+  color: rgb(var(--color-ink));
+}
+
+.project-surface::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--project-wash-from) 0%,
+    var(--project-wash-to) 100%
+  );
+}
+
+/* Alternate cards: stronger wash for separation */
+.project-surface-alt::before {
+  background: linear-gradient(
+    180deg,
+    var(--project-wash-alt-from) 0%,
+    var(--project-wash-alt-to) 100%
+  );
+}
+
+/* Pills invert the card wash for contrast */
+.project-surface .skill-pill {
+  background: var(--skill-pill-bg);
+  color: var(--skill-pill-color);
+}
+
+.project-surface-alt .skill-pill {
+  background: var(--skill-pill-alt-bg);
 }

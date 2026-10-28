@@ -1,8 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
+import { HiMoon, HiSun } from "react-icons/hi";
 import Wrapper from "../../layouts/Wrapper";
 import SocialLinks from "../SocialLinks/SocialLinks";
+import type { Theme } from "../../hooks/useTheme";
 
-const Navigation: React.FC = () => {
+interface Props {
+  theme: Theme;
+  onToggleTheme: () => void;
+}
+
+const Navigation: React.FC<Props> = ({ theme, onToggleTheme }) => {
   const [isScrolledNav, setIsScrolledNav] = useState(false);
   const [activeLink, setActiveLink] = useState<string>("about");
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -72,24 +79,29 @@ const Navigation: React.FC = () => {
     <Wrapper
       ref={navRef}
       id="navigation"
+      paddingX="px-4 md:px-6 lg:px-10"
       paddingY="py-4"
-      extraClasses={`navigation sticky top-0 w-full transition-all duration-300 bg-primaryColor min-h-[60px] ${
-        isScrolledNav ? "bg-opacity-95" : ""
-      } z-[1000]`}
+      bgColor="bg-canvas"
+      extraClasses={`site-nav navigation sticky top-0 z-[1000] w-full min-h-[60px] text-white shadow-sm shadow-black/20 transition-shadow duration-300 ${
+        isScrolledNav ? "shadow-md" : ""
+      }`}
     >
-      <nav className="text-white items-center grid gap-2 sm:grid-rows-2 md:grid-cols-2 md:grid-rows-1">
-        <ul className="text-lg flex space-x-4 justify-center md:justify-start">
+      {/* Same rail as project cards */}
+      <nav className="mx-auto flex w-full max-w-7xl flex-col items-center gap-2 md:flex-row md:justify-between">
+        <ul className="flex justify-center space-x-1 text-sm md:justify-start md:space-x-2 md:text-base">
           {NAV_LINKS.map((link, i) => (
             <li
               key={i + "_" + link.label}
-              className="transition-all duration-300 hover:text-secondaryColor"
+              className="transition-colors duration-200"
             >
               <button
                 data-target={link.target}
                 onClick={handleNavigate}
-                className={`${
-                  activeLink === link.target ? "text-secondaryColor" : ""
-                } hover:underline underline-offset-8`}
+                className={`nav-link rounded-full px-3 py-1.5 font-medium text-white/90 transition duration-300 ease-out hover:bg-white/10 hover:text-secondaryColor ${
+                  activeLink === link.target
+                    ? "is-active bg-white/10 text-secondaryColor"
+                    : ""
+                }`}
                 aria-label={`${link.label}. ${
                   activeLink === link.target ? "Current section." : ""
                 }`}
@@ -100,7 +112,29 @@ const Navigation: React.FC = () => {
           ))}
         </ul>
 
-        <SocialLinks />
+        {/* Theme + socials */}
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={onToggleTheme}
+            className="nav-icon-btn rounded-full p-2 text-white/90 transition hover:bg-white/10 hover:text-secondaryColor"
+            aria-label={
+              theme === "light"
+                ? "Switch to dark theme"
+                : "Switch to light theme"
+            }
+          >
+            {theme === "light" ? (
+              <HiMoon className="h-5 w-5" />
+            ) : (
+              <HiSun className="h-5 w-5" />
+            )}
+          </button>
+          <SocialLinks
+            justify="justify-center"
+            className="nav-social text-white/90"
+          />
+        </div>
       </nav>
     </Wrapper>
   );
