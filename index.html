@@ -5,8 +5,17 @@
     <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paolo Ghidoni Portfolio</title>
-    <script type="module" crossorigin src="/portfolio/assets/index-DwaWuZb5.js"></script>
-    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-BR0dRxz9.css">
+    <!-- Apply stored theme before paint -->
+    <script>
+      try {
+        var t = localStorage.getItem("portfolio-theme");
+        if (t === "dark" || t === "light") {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    </script>
+    <script type="module" crossorigin src="/portfolio/assets/index-DciKEntT.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-BYArK2Tj.css">
   </head>
   <body>
     <div id="root"></div>
