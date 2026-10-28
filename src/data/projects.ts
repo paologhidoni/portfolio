@@ -7,6 +7,7 @@ import gamekitImg from "../assets/gamekit.png";
 import hairTrackerImg from "../assets/hairtracker.png";
 import policyInPracticeImg from "../assets/policyinpractice.png";
 import aiBudgetImg from "../assets/aibudget.webp";
+import prontoExpatImg from "../assets/prontoexpat.png";
 
 export interface ProjectData {
   id: string;
@@ -21,6 +22,39 @@ export interface ProjectData {
 }
 
 export const projects: ProjectData[] = [
+  {
+    id: "project-11",
+    title: "ProntoExpat",
+    description:
+      "I founded and shipped ProntoExpat end to end: a production app that replaces hours of unreliable searching with a clear path through Italian bureaucracy for expats. Smart triage feeds Supabase Edge Functions that resolve personalized journey blueprints and checkpointed task lists, backed by curated, source-cited guides in ten languages. Premium adds saved resources, an inbox and push reminders with weekday deadline logic. Built as an npm monorepo with shared Zod contracts, TanStack Query and RLS-backed Postgres, PKCE Google auth, RevenueCat purchases, PostHog analytics, Sentry monitoring, Expo EAS releases and GitHub Actions running Jest, Deno Edge Function tests and Maestro Android E2E.",
+    image: prontoExpatImg,
+    technologies: [
+      "React Native",
+      "Expo",
+      "Expo Router",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "Row Level Security",
+      "Deno Edge Functions",
+      "TanStack Query",
+      "Zustand",
+      "Zod",
+      "i18next",
+      "RevenueCat",
+      "PostHog",
+      "Sentry",
+      "Google OAuth",
+      "Apple Sign-In",
+      "Expo Push Notifications",
+      "Expo EAS",
+      "Jest",
+      "Maestro",
+      "GitHub Actions",
+    ],
+    website: "https://ordinae.github.io/prontoexpat/",
+    live: "https://play.google.com/store/apps/details?id=com.prontoexpat.app",
+  },
   {
     id: "project-10",
     title: "AiBudget",
