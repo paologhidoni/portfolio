@@ -45,7 +45,6 @@ export const projects: ProjectData[] = [
       "PostHog",
       "Sentry",
       "Google OAuth",
-      "Apple Sign-In",
       "Expo Push Notifications",
       "Expo EAS",
       "Jest",
