@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { HiMoon, HiSun } from "react-icons/hi";
+import { LuMoon, LuSun } from "react-icons/lu";
 import Wrapper from "../../layouts/Wrapper";
 import SocialLinks from "../SocialLinks/SocialLinks";
 import type { Theme } from "../../hooks/useTheme";
@@ -117,22 +117,28 @@ const Navigation: React.FC<Props> = ({ theme, onToggleTheme }) => {
           <button
             type="button"
             onClick={onToggleTheme}
-            className="nav-icon-btn rounded-full p-2 text-white/90 transition hover:bg-white/10 hover:text-secondaryColor"
+            className="nav-icon-btn group rounded-full p-2 text-white/90 transition hover:bg-white/10 hover:text-secondaryColor focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondaryColor"
             aria-label={
+              theme === "light"
+                ? "Switch to dark theme"
+                : "Switch to light theme"
+            }
+            title={
               theme === "light"
                 ? "Switch to dark theme"
                 : "Switch to light theme"
             }
           >
             {theme === "light" ? (
-              <HiMoon className="h-5 w-5" />
+              <LuMoon className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110" />
             ) : (
-              <HiSun className="h-5 w-5" />
+              <LuSun className="h-5 w-5 transition-transform duration-300 group-hover:rotate-45 group-hover:scale-110" />
             )}
           </button>
           <SocialLinks
             justify="justify-center"
             className="nav-social text-white/90"
+            theme={theme}
           />
         </div>
       </nav>

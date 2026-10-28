@@ -1,37 +1,33 @@
 import React from "react";
-import { VscGithub } from "react-icons/vsc";
-import { SiCodewars, SiLeetcode } from "react-icons/si";
-import { GrLinkedinOption } from "react-icons/gr";
+import { SiCodewars, SiGithub, SiLeetcode, SiLinkedin } from "react-icons/si";
+import type { Theme } from "../../hooks/useTheme";
 
 interface Props {
   justify?: string;
   className?: string;
+  theme?: Theme;
 }
 
 const SOCIAL_LINKS = [
   {
     name: "LinkedIn",
-    icon: <GrLinkedinOption />,
+    icon: SiLinkedin,
     url: "https://www.linkedin.com/in/paologhidoni/",
-    className: "w-6 h-6",
   },
   {
     name: "GitHub",
-    icon: <VscGithub />,
+    icon: SiGithub,
     url: "https://github.com/paologhidoni",
-    className: "w-5 md:w-6 h-5 md:w-6",
   },
   {
-    name: "Leetcode",
-    icon: <SiLeetcode />,
+    name: "LeetCode",
+    icon: SiLeetcode,
     url: "https://leetcode.com/u/IamPaolo/",
-    className: "w-5 md:w-6 h-5 md:w-6",
   },
   {
-    name: "Code Wars",
-    icon: <SiCodewars />,
+    name: "Codewars",
+    icon: SiCodewars,
     url: "https://www.codewars.com/users/PaoloGhidoni",
-    className: "w-5 md:w-6 h-5 md:w-6",
   },
 ];
 
@@ -41,28 +37,30 @@ const SocialLinks: React.FC<Props> = ({
 }) => {
   return (
     <ul
-      className={`m-0 flex items-baseline space-x-4 pb-[2px] ${justify} ${className}`}
+      className={`m-0 flex items-center space-x-4 ${justify} ${className}`}
     >
-      {SOCIAL_LINKS.map((link, i) => (
-        <li
-          key={i + "_" + link.url}
-          className="transition-all duration-300 hover:text-secondaryColor"
-        >
-          <a
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Opens ${link.name} in a new tab.`}
+      {SOCIAL_LINKS.map((link) => {
+        const Icon = link.icon;
+        return (
+          <li
+            key={link.url}
+            className="transition-transform duration-200 hover:scale-110"
           >
-            {React.cloneElement(link.icon, {
-              className: [
-                link.className || "w-3 md:w-6 h-3 md:h-6",
-                "text-current",
-              ].join(" "),
-            })}
-          </a>
-        </li>
-      ))}
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Opens ${link.name} in a new tab.`}
+              className="inline-flex items-center justify-center rounded-full p-2 transition-colors duration-200 hover:text-secondaryColor focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondaryColor"
+            >
+              <Icon
+                className="h-5 w-5 md:h-[22px] md:w-[22px] text-current"
+                aria-hidden="true"
+              />
+            </a>
+          </li>
+        );
+      })}
     </ul>
   );
 };

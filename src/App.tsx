@@ -22,7 +22,7 @@ function App() {
         <WorkAndProjects />
         <Skills theme={theme} />
       </main>
-      <Footer />
+      <Footer theme={theme} />
       <ScrollToTop />
     </div>
   );

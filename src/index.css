@@ -205,6 +205,11 @@
   fill: currentColor;
 }
 
+/* Scroll-to-top: icon turns near-black on hover in dark mode */
+[data-theme="dark"] .scroll-to-top:hover {
+  color: #080706;
+}
+
 /* Pills dropping into place (jar fill) — global so inline animationName works */
 @keyframes pill-drop-in {
   from {

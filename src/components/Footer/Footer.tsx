@@ -1,8 +1,13 @@
 import React from "react";
 import Wrapper from "../../layouts/Wrapper";
 import SocialLinks from "../SocialLinks/SocialLinks";
+import type { Theme } from "../../hooks/useTheme";
 
-const Footer: React.FC = () => {
+interface Props {
+  theme: Theme;
+}
+
+const Footer: React.FC<Props> = ({ theme }) => {
   return (
     <section id="footer" className="section-chrome site-footer">
       <Wrapper
@@ -14,6 +19,7 @@ const Footer: React.FC = () => {
         <SocialLinks
           justify="justify-center"
           className="footer-social text-ink"
+          theme={theme}
         />
         <span className="footer-copy mt-4 block text-sm">
           &copy; Paolo Ghidoni {new Date().getFullYear()}
