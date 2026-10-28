@@ -58,12 +58,13 @@ export const projects: ProjectData[] = [
     id: "project-10",
     title: "AiBudget",
     description:
-      "A privacy-first expense tracker I built with React Native and Expo. A client-side financial assistant answers in charts, tables and budget cards instead of long text walls. I fine-tuned Qwen 2.5 0.5B with LoRA for fully offline intent on native, published the shipped GGUF on Hugging Face and wired a controlled generative UI layer so the model picks tools while SQLite stays on device. Includes API agent mode, automated evals and a live web demo on GitHub Pages plus an installable Android build.",
+      "A privacy-first expense tracker I built with React Native and Expo. A client-side financial assistant answers in charts, tables and budget cards instead of long text walls. The agent uses a Qwen 2.5 0.5B model I fine-tuned with LoRA for offline intent on native; I published the shipped GGUF on Hugging Face and wired a controlled generative UI layer so the model picks tools while SQLite stays on device. It runs fully on-device or with an optional OpenAI API key, with automated evals for quality. Live web demo on GitHub Pages and an installable Android build. Optional biometric lock prompts Face ID or fingerprint when the app returns from the background or a cold start.",
     image: aiBudgetImg,
     technologies: [
       "React Native",
       "Expo",
       "TypeScript",
+      "Biometric App Lock",
       "SQLite",
       "Zustand",
       "Zod",
