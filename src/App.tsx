@@ -20,7 +20,7 @@ function App() {
       <main className="bg-surface">
         <Hero />
         <WorkAndProjects />
-        <Skills />
+        <Skills theme={theme} />
       </main>
       <Footer />
       <ScrollToTop />

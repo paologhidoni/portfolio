@@ -1,31 +1,10 @@
 import React from "react";
 import Wrapper from "../../layouts/Wrapper";
 import SectionHeading from "../SectionHeading/SectionHeading";
-import jsImg from "../../assets/js.png";
-import htmlImg from "../../assets/html.png";
-import cssImg from "../../assets/css.png";
-import reactImg from "../../assets/react.png";
-import nodeImg from "../../assets/node.png";
-import angularImg from "../../assets/angular.png";
-import awsImg from "../../assets/aws.png";
-import typescriptImg from "../../assets/typescript.png";
-import cypressImg from "../../assets/cypress.png";
-import sassImg from "../../assets/sass.png";
-import playwrightImg from "../../assets/playwright.png";
-import figmaImg from "../../assets/figma.png";
-import gitImg from "../../assets/git.png";
-import tailwindImg from "../../assets/tailwind.png";
-import jestImg from "../../assets/jest.png";
-import nextImg from "../../assets/next.png";
-import styledComponentsImg from "../../assets/styled-components.png";
-import pythonImg from "../../assets/python.png";
-import openAiImg from "../../assets/openai-icon.svg";
-import langchainImg from "../../assets/langchain.svg";
-import expoImg from "../../assets/expo.webp";
-import githubActionsImg from "../../assets/githubactions.png";
-import maestroImg from "../../assets/meastro.jpg";
+import { skillIconByName, simpleIconFill } from "../../data/skillIcons";
+import { Theme } from "../../hooks/useTheme";
 
-type SkillItem = { name: string; img: string };
+type SkillItem = { name: string };
 
 type SkillGroup = { title: string; skills: SkillItem[] };
 
@@ -33,56 +12,90 @@ const skillGroups: SkillGroup[] = [
   {
     title: "Mobile",
     skills: [
-      { name: "React Native", img: reactImg },
-      { name: "Expo", img: expoImg },
+      { name: "React Native" },
+      { name: "Expo" },
     ],
   },
   {
     title: "AI / Agentic",
     skills: [
-      { name: "OpenAI", img: openAiImg },
-      { name: "LangChain", img: langchainImg },
-      { name: "Python", img: pythonImg },
+      { name: "OpenAI" },
+      { name: "LangChain" },
+      { name: "Python" },
     ],
   },
   {
     title: "Web",
     skills: [
-      { name: "TypeScript", img: typescriptImg },
-
-      { name: "React.js", img: reactImg },
-      { name: "Next.js", img: nextImg },
-      { name: "Tailwind", img: tailwindImg },
-      { name: "Angular", img: angularImg },
-      { name: "Styled Components", img: styledComponentsImg },
-      { name: "HTML", img: htmlImg },
-      { name: "CSS", img: cssImg },
-      { name: "JavaScript", img: jsImg },
-      { name: "Sass", img: sassImg },
-      { name: "Node.js", img: nodeImg },
+      { name: "TypeScript" },
+      { name: "React.js" },
+      { name: "Next.js" },
+      { name: "Tailwind" },
+      { name: "Angular" },
+      { name: "Styled Components" },
+      { name: "HTML" },
+      { name: "CSS" },
+      { name: "JavaScript" },
+      { name: "Sass" },
+      { name: "Node.js" },
     ],
   },
   {
     title: "Design",
-    skills: [{ name: "Figma", img: figmaImg }],
+    skills: [{ name: "Figma" }],
   },
   {
     title: "Cloud / QA / Ops",
     skills: [
-      { name: "Expo EAS", img: expoImg },
-
-      { name: "AWS", img: awsImg },
-      { name: "GitHub Actions", img: githubActionsImg },
-      { name: "Maestro", img: maestroImg },
-      { name: "Playwright", img: playwrightImg },
-      { name: "Cypress", img: cypressImg },
-      { name: "Jest", img: jestImg },
-      { name: "Git", img: gitImg },
+      { name: "Expo EAS" },
+      { name: "AWS" },
+      { name: "GitHub Actions" },
+      { name: "Maestro" },
+      { name: "Playwright" },
+      { name: "Cypress" },
+      { name: "Jest" },
+      { name: "Git" },
     ],
   },
 ];
 
-const Skills: React.FC = () => {
+const SkillIcon: React.FC<{ skillName: string; theme: Theme }> = ({ skillName, theme }) => {
+  const iconSource = skillIconByName[skillName];
+
+  if (!iconSource) {
+    return null;
+  }
+
+  if (iconSource.kind === "custom") {
+    const iconSrc = theme === "dark" ? iconSource.dark : iconSource.light;
+    return (
+      <img
+        src={iconSrc}
+        alt=""
+        className="h-11 w-11 object-contain md:h-12 md:w-12"
+        loading="lazy"
+        decoding="async"
+      />
+    );
+  }
+
+  // Simple icon
+  const fill = simpleIconFill(iconSource.icon, theme);
+  return (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-11 w-11 md:h-12 md:w-12"
+      fill={fill}
+    >
+      <title>{skillName}</title>
+      <path d={iconSource.icon.path} />
+    </svg>
+  );
+};
+
+const Skills: React.FC<{ theme: Theme }> = ({ theme }) => {
   return (
     <section
       id="skills"
@@ -111,13 +124,7 @@ const Skills: React.FC = () => {
                       key={`${group.title}-${skill.name}`}
                       className="flex flex-col items-center gap-3 rounded-2xl bg-surfaceRaised p-4 text-center shadow-md md:p-5"
                     >
-                      <img
-                        src={skill.img}
-                        alt=""
-                        className="h-11 w-11 object-contain md:h-12 md:w-12"
-                        loading="lazy"
-                        decoding="async"
-                      />
+                      <SkillIcon skillName={skill.name} theme={theme} />
                       <span className="text-[11px] font-bold leading-tight text-ink md:text-xs">
                         {skill.name}
                       </span>
