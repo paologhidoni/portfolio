@@ -1,6 +1,5 @@
 import huksoImg from "../assets/hukso.png";
 import musicPlayerImg from "../assets/music-player.png";
-import ticTacToeImg from "../assets/tictactoe.png";
 import investmentImg from "../assets/investmentcalculator.png";
 // import workInProgressImg from "../assets/inprogress.jpg";
 import gamekitImg from "../assets/gamekit.png";
@@ -167,16 +166,6 @@ export const projects: ProjectData[] = [
     technologies: ["React", "TypeScript", "Tailwind", "Recharts"],
     github: "https://github.com/paologhidoni/investmentcalculator",
     live: "https://paologhidoni.github.io/investmentcalculator/",
-  },
-  {
-    id: "project-5",
-    title: "Tic Tac Toe",
-    description:
-      "I built a Tic-Tac-Toe game for fun and to practice React, TypeScript and styling. It is fully responsive and features a hidden audio player that can be toggled on and off.",
-    image: ticTacToeImg,
-    technologies: ["React", "Typescript", "Css"],
-    github: "https://github.com/paologhidoni/tictactoe",
-    live: "https://paologhidoni.github.io/tictactoe/",
   },
   {
     id: "project-4",
