@@ -83,7 +83,7 @@ const Project: React.FC<Props> = ({
 
   // Card link treatment
   const linkClassName =
-    "inline-flex origin-left items-center text-sm font-bold text-ink underline decoration-secondaryColor decoration-4 underline-offset-4 transition duration-200 hover:scale-110 hover:decoration-orange-500";
+    "inline-flex origin-left items-center text-base font-bold text-ink underline decoration-secondaryColor decoration-4 underline-offset-4 transition duration-200 hover:scale-110 hover:decoration-orange-500 lg:text-sm";
 
   const techGroups = groupTechnologies(technologies);
 
@@ -91,7 +91,7 @@ const Project: React.FC<Props> = ({
     <article
       ref={cardRef}
       id={id}
-      className={`project-surface group w-full text-ink ${
+      className={`project-surface group w-full overflow-x-clip text-ink ${
         altSurface ? "project-surface-alt" : ""
       } ${
         roundBottom
@@ -112,81 +112,82 @@ const Project: React.FC<Props> = ({
         ) : null}
 
         <div className="flex flex-col gap-8 md:gap-9 lg:gap-10">
-          {/* Stack on small screens; image left + copy right from lg */}
-          <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:gap-12">
-        {/* Preview column */}
-        <div className="w-full lg:max-w-lg lg:flex-shrink-0 xl:max-w-xl">
-          <a
-            ref={previewRef}
-            href={live}
-            target="_blank"
-            rel="noreferrer"
-            className={`relative block origin-center overflow-hidden transition duration-500 ease-out ${
-              focused ? "scale-[1.03]" : "scale-100"
-            }`}
-            aria-label={`See the ${title} project Live`}
-          >
-            {/* AI ribbon badge */}
-            {aiPowered && (
-              <div
-                className={`absolute top-[28px] -right-[40px] z-10 flex w-[180px] origin-center rotate-45 items-center justify-center gap-2 border-y border-blue-400/30 bg-gradient-to-r from-blue-600 to-purple-700 py-1.5 shadow-xl transition duration-500 ease-out ${
-                  focused ? "scale-110" : "scale-100"
+          {/* Mobile: copy then image; lg: image left, copy right */}
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-12">
+            {/* Copy column */}
+            <div className="order-1 flex min-w-0 flex-1 flex-col lg:order-2">
+              <h3
+                className={`origin-left text-2xl font-bold tracking-tight text-ink transition duration-500 ease-out md:text-2xl ${
+                  focused ? "scale-[1.12] max-lg:scale-100" : "scale-100"
                 }`}
               >
-                <img src={AiIcon} alt="" className="h-6 w-6" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-white">
-                  Powered
-                </span>
+                {title}
+              </h3>
+              <p className="mt-4 text-pretty text-lg font-normal leading-7 text-ink md:text-[17px] md:leading-7">
+                {description}
+              </p>
+
+              {/* Project links */}
+              <div className="mt-auto flex w-full flex-wrap items-center justify-between gap-y-3 pt-8 lg:justify-start lg:gap-x-10">
+                {primaryLink ? (
+                  <a
+                    href={primaryLink.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={linkClassName}
+                    aria-label={primaryLink.ariaLabel}
+                  >
+                    {primaryLink.label} →
+                  </a>
+                ) : null}
+                <a
+                  href={live}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={linkClassName}
+                  aria-label={`See the ${title} project Live`}
+                >
+                  See Live →
+                </a>
               </div>
-            )}
+            </div>
 
-            <img
-              src={image}
-              alt={title}
-              className={`h-52 w-full object-cover object-top transition duration-500 ease-out lg:h-64 ${
-                focused ? "scale-[1.04]" : "scale-100"
-              }`}
-            />
-          </a>
-        </div>
-
-        <div className="flex min-w-0 flex-1 flex-col">
-          <h3
-            className={`origin-left mt-3 text-xl font-bold tracking-tight text-ink transition duration-500 ease-out md:text-2xl lg:mt-0 ${
-              focused ? "scale-[1.12]" : "scale-100"
-            }`}
-          >
-            {title}
-          </h3>
-          <p className="mt-4 text-pretty text-base font-normal leading-6 text-ink md:text-[17px] md:leading-7">
-            {description}
-          </p>
-
-          {/* Project links */}
-          <div className="mt-auto flex w-full flex-wrap items-center justify-between gap-y-3 pt-8 lg:justify-start lg:gap-x-10">
-            {primaryLink ? (
+            {/* Preview column */}
+            <div className="order-2 w-full min-w-0 lg:order-1 lg:max-w-lg lg:flex-shrink-0 xl:max-w-xl">
               <a
-                href={primaryLink.href}
+                ref={previewRef}
+                href={live}
                 target="_blank"
                 rel="noreferrer"
-                className={linkClassName}
-                aria-label={primaryLink.ariaLabel}
+                className={`relative block origin-center overflow-hidden transition duration-500 ease-out ${
+                  focused ? "scale-[1.03] max-lg:scale-100" : "scale-100"
+                }`}
+                aria-label={`See the ${title} project Live`}
               >
-                {primaryLink.label} →
+                {/* AI ribbon badge */}
+                {aiPowered && (
+                  <div
+                    className={`absolute top-[28px] -right-[40px] z-10 flex w-[180px] origin-center rotate-45 items-center justify-center gap-2 border-y border-blue-400/30 bg-gradient-to-r from-blue-600 to-purple-700 py-1.5 shadow-xl transition duration-500 ease-out ${
+                      focused ? "scale-110 max-lg:scale-100" : "scale-100"
+                    }`}
+                  >
+                    <img src={AiIcon} alt="" className="h-6 w-6" />
+                    <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-white">
+                      Powered
+                    </span>
+                  </div>
+                )}
+
+                <img
+                  src={image}
+                  alt={title}
+                  className={`h-64 w-full max-w-full object-cover object-top transition duration-500 ease-out ${
+                    focused ? "scale-[1.04] max-lg:scale-100" : "scale-100"
+                  }`}
+                />
               </a>
-            ) : null}
-            <a
-              href={live}
-              target="_blank"
-              rel="noreferrer"
-              className={linkClassName}
-              aria-label={`See the ${title} project Live`}
-            >
-              See Live →
-            </a>
+            </div>
           </div>
-        </div>
-      </div>
 
       {/* Tech columns: equal width, table-style dividers */}
       <div

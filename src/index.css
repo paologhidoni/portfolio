@@ -103,16 +103,19 @@
   /* Shell matches footer (surface) — no white in card gutters */
   html {
     background-color: rgb(var(--color-surface));
+    overflow-x: clip;
   }
 
   body {
     @apply antialiased;
     background-color: rgb(var(--color-surface));
     min-height: 100%;
+    overflow-x: clip;
   }
 
   #root {
     min-height: 100%;
+    overflow-x: clip;
   }
 }
 

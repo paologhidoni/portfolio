@@ -38,17 +38,17 @@ const Hero: React.FC = () => {
       >
         <header className="m-auto max-w-5xl text-center text-white">
           {/* Name block */}
-          <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
+          <h1 className="text-5xl font-bold tracking-tight md:text-6xl">
             <span className="text-secondaryColor">Paolo</span>{" "}
             <span className="font-normal">Ghidoni</span>
             {/* Role line */}
-            <span className="mt-6 mb-8 block text-lg font-normal leading-snug text-white/95 md:text-xl">
+            <span className="mt-6 mb-8 block text-xl font-bold leading-snug text-white/95 md:text-xl">
               Full-stack engineer · Agentic AI · React Native
             </span>
           </h1>
 
           {/* Bio */}
-          <div className="mx-auto max-w-3xl space-y-4 text-base leading-relaxed tracking-wide text-white/95 md:text-lg md:leading-relaxed">
+          <div className="mx-auto max-w-3xl space-y-4 text-lg leading-relaxed tracking-wide text-white/95 md:text-lg md:leading-relaxed">
             <p>
               I am a Software Developer with a passion for building intuitive,
               user-focused applications that make a tangible difference in
