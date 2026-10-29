@@ -18,6 +18,7 @@ const WorkAndProjects: React.FC = () => {
               github={project.github}
               live={project.live}
               website={project.website}
+              huggingFace={project.huggingFace}
               aiPowered={project.aiPowered}
               altSurface={index % 2 === 1}
               sectionLabel={index === 0 ? "Work & Projects" : undefined}

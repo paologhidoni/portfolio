@@ -17,6 +17,7 @@ export interface ProjectData {
   github?: string;
   live: string;
   website?: string;
+  huggingFace?: string;
   aiPowered?: boolean;
 }
 
@@ -87,6 +88,7 @@ export const projects: ProjectData[] = [
     ],
     github: "https://github.com/paologhidoni/ai-budget",
     live: "https://paologhidoni.github.io/ai-budget/",
+    huggingFace: "https://huggingface.co/pablitoelpeligro/aibudget-intent-05b-GGUF",
     aiPowered: true,
   },
   {

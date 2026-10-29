@@ -12,6 +12,7 @@ interface Props {
   github?: string;
   live: string;
   website?: string;
+  huggingFace?: string;
   aiPowered?: boolean;
   altSurface?: boolean;
   sectionLabel?: string;
@@ -26,6 +27,7 @@ const Project: React.FC<Props> = ({
   github,
   live,
   website,
+  huggingFace,
   aiPowered,
   altSurface = false,
   sectionLabel,
@@ -166,6 +168,18 @@ const Project: React.FC<Props> = ({
                     aria-label={primaryLink.ariaLabel}
                   >
                     {primaryLink.label} →
+                  </a>
+                ) : null}
+                {/* Shipped on-device weights */}
+                {huggingFace ? (
+                  <a
+                    href={huggingFace}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={linkClassName}
+                    aria-label={`View the ${title} on-device model on Hugging Face`}
+                  >
+                    Hugging Face GGUF →
                   </a>
                 ) : null}
                 <a
