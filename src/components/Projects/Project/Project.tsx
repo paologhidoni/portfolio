@@ -33,8 +33,9 @@ const Project: React.FC<Props> = ({
   sectionLabel,
 }) => {
   const cardRef = useRef<HTMLElement>(null);
+  const techRef = useRef<HTMLDivElement>(null);
   const previewRef = useRef<HTMLAnchorElement>(null);
-  // Focus toggles with mid-viewport; pills stay after first focus
+  // Focus toggles with mid-viewport; pills when tech block hits reading zone
   const [focused, setFocused] = useState(false);
   const [pillsAnimating, setPillsAnimating] = useState(false);
   const pillsPlayedRef = useRef(false);
@@ -58,13 +59,27 @@ const Project: React.FC<Props> = ({
     return () => observer.disconnect();
   }, []);
 
-  // Pill drop once on first focus
+  // Pill drop once when tech stack is in the middle of the screen
   useEffect(() => {
-    if (!focused || pillsPlayedRef.current) return;
-    pillsPlayedRef.current = true;
-    const id = requestAnimationFrame(() => setPillsAnimating(true));
-    return () => cancelAnimationFrame(id);
-  }, [focused]);
+    const el = techRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || pillsPlayedRef.current) return;
+        pillsPlayedRef.current = true;
+        requestAnimationFrame(() => setPillsAnimating(true));
+      },
+      {
+        // Middle band of viewport — later than whole-card midpoint
+        rootMargin: "-28% 0px -32% 0px",
+        threshold: 0.12,
+      }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // Primary link config
   const primaryLink = github
@@ -191,6 +206,7 @@ const Project: React.FC<Props> = ({
 
       {/* Tech columns: equal width, table-style dividers */}
       <div
+        ref={techRef}
         className={`mt-4 grid overflow-hidden md:mt-6 ${
           techGroups.length <= 1
             ? "grid-cols-1"
