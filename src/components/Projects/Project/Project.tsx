@@ -32,53 +32,69 @@ const Project: React.FC<Props> = ({
   altSurface = false,
   sectionLabel,
 }) => {
-  const cardRef = useRef<HTMLElement>(null);
+  const focusRef = useRef<HTMLDivElement>(null);
   const techRef = useRef<HTMLDivElement>(null);
   const previewRef = useRef<HTMLAnchorElement>(null);
-  // Focus toggles with mid-viewport; pills when tech block hits reading zone
+  // Title/image focus; pills start once that row hits the mid band
   const [focused, setFocused] = useState(false);
   const [pillsAnimating, setPillsAnimating] = useState(false);
   const pillsPlayedRef = useRef(false);
+  const lastScrollYRef = useRef(0);
 
-  // Scale while card crosses ~50vh; reset when it leaves
+  // Title/image focus; pills start once that row hits the mid band
   useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
+    const focusEl = focusRef.current;
+    const techEl = techRef.current;
+    if (!focusEl) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        const rect = entry.boundingClientRect;
-        const mid = window.innerHeight * 0.5;
-        const crossesMid = rect.top < mid && rect.bottom > mid;
-        setFocused(crossesMid);
-      },
-      { threshold: [0, 0.15, 0.3, 0.5, 0.75, 1] }
-    );
+    lastScrollYRef.current = window.scrollY;
 
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+    const viewMidRatio = 0.52;
+    const enterBandDownRatio = 0.11;
+    const enterBandUpRatio = 0.16;
+    const exitBandRatio = 0.22;
 
-  // Pill drop once when tech stack is in the middle of the screen
-  useEffect(() => {
-    const el = techRef.current;
-    if (!el) return;
+    const updateScrollEffects = () => {
+      const scrollingUp = window.scrollY < lastScrollYRef.current;
+      lastScrollYRef.current = window.scrollY;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting || pillsPlayedRef.current) return;
+      const rect = focusEl.getBoundingClientRect();
+      const rowCenter = rect.top + rect.height / 2;
+      const viewH = window.innerHeight;
+      const exitDist = Math.abs(rowCenter - viewH * viewMidRatio);
+      const enterMid = viewH * (scrollingUp ? viewMidRatio + 0.03 : viewMidRatio);
+      const focusEnterDist = Math.abs(rowCenter - enterMid);
+
+      const focusEnterBand =
+        viewH * (scrollingUp ? enterBandUpRatio : enterBandDownRatio);
+      const pillsEnterBand = viewH * enterBandDownRatio;
+      const exitBand = viewH * exitBandRatio;
+      const pillsFocusDist = Math.abs(rowCenter - viewH * viewMidRatio);
+
+      setFocused((prev) => {
+        if (focusEnterDist <= focusEnterBand) return true;
+        if (exitDist >= exitBand) return false;
+        return prev;
+      });
+
+      if (
+        techEl &&
+        !pillsPlayedRef.current &&
+        pillsFocusDist <= pillsEnterBand
+      ) {
         pillsPlayedRef.current = true;
         requestAnimationFrame(() => setPillsAnimating(true));
-      },
-      {
-        // Middle band of viewport — later than whole-card midpoint
-        rootMargin: "-28% 0px -32% 0px",
-        threshold: 0.12,
       }
-    );
+    };
 
-    observer.observe(el);
-    return () => observer.disconnect();
+    updateScrollEffects();
+    window.addEventListener("scroll", updateScrollEffects, { passive: true });
+    window.addEventListener("resize", updateScrollEffects);
+
+    return () => {
+      window.removeEventListener("scroll", updateScrollEffects);
+      window.removeEventListener("resize", updateScrollEffects);
+    };
   }, []);
 
   // Primary link config
@@ -104,7 +120,6 @@ const Project: React.FC<Props> = ({
 
   return (
     <article
-      ref={cardRef}
       id={id}
       className={`project-surface group w-full overflow-x-clip text-ink ${
         altSurface ? "project-surface-alt" : ""
@@ -128,12 +143,15 @@ const Project: React.FC<Props> = ({
 
         <div className="flex flex-col gap-8 md:gap-9 lg:gap-10">
           {/* Mobile: copy then image; lg: image left, copy right */}
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-12">
+          <div
+            ref={focusRef}
+            className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-12"
+          >
             {/* Copy column */}
             <div className="order-1 flex min-w-0 flex-1 flex-col lg:order-2">
               <h3
                 className={`origin-left text-2xl font-bold tracking-tight text-ink transition duration-500 ease-out md:text-2xl ${
-                  focused ? "scale-[1.12] max-lg:scale-100" : "scale-100"
+                  focused ? "scale-[1.16] max-lg:scale-100" : "scale-100"
                 }`}
               >
                 {title}
@@ -257,10 +275,7 @@ const Project: React.FC<Props> = ({
                               animationDelay: `${dropIndex * 90}ms`,
                               animationFillMode: "both",
                             }
-                          : {
-                              opacity: 0,
-                              transform: "translateY(-18px) scale(0.85)",
-                            }
+                          : undefined
                       }
                     >
                       {tech}

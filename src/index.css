@@ -48,7 +48,7 @@
   /* Comma-separated for rgba(var(--x), a) */
   --color-canvas: 13, 27, 42;
   --color-primary: 13, 27, 42;
-  --color-secondary: 226, 188, 106;
+  --color-secondary: 238, 196, 92;
   --color-ink: 13, 27, 42;
   --color-muted: 71, 85, 105;
   --color-surface: 248, 250, 252;
@@ -76,7 +76,7 @@
   --color-canvas: 14, 12, 10;
   --color-primary: 24, 22, 19;
   /* Slightly brighter gold on dark surfaces */
-  --color-secondary: 236, 198, 118;
+  --color-secondary: 248, 206, 102;
   --color-ink: 247, 243, 236;
   --color-muted: 180, 174, 165;
   /* Section chrome matches canvas — no bright bands */
