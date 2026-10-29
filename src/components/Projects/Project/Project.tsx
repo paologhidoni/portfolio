@@ -192,32 +192,34 @@ const Project: React.FC<Props> = ({
                 href={live}
                 target="_blank"
                 rel="noreferrer"
-                className={`relative block origin-center overflow-hidden transition duration-500 ease-out ${
+                className={`block origin-center transition duration-500 ease-out ${
                   focused ? "scale-[1.03] max-lg:scale-100" : "scale-100"
                 }`}
                 aria-label={`See the ${title} project Live`}
               >
-                {/* AI ribbon badge */}
-                {aiPowered && (
-                  <div
-                    className={`absolute top-[28px] -right-[40px] z-10 flex w-[180px] origin-center rotate-45 items-center justify-center gap-2 border-y border-blue-400/30 bg-gradient-to-r from-blue-600 to-purple-700 py-1.5 shadow-xl transition duration-500 ease-out ${
-                      focused ? "scale-110 max-lg:scale-100" : "scale-100"
-                    }`}
-                  >
-                    <img src={AiIcon} alt="" className="h-6 w-6" />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-white">
-                      Powered
-                    </span>
-                  </div>
-                )}
+                {/* Frame matches image bounds — ribbon clips to corner */}
+                <div className="relative w-full overflow-hidden">
+                  {aiPowered && (
+                    <div
+                      className={`absolute top-[28px] -right-[40px] z-10 flex w-[180px] origin-center rotate-45 items-center justify-center gap-2 border-y border-blue-400/30 bg-gradient-to-r from-blue-600 to-purple-700 py-1.5 shadow-xl transition duration-500 ease-out ${
+                        focused ? "scale-110 max-lg:scale-100" : "scale-100"
+                      }`}
+                    >
+                      <img src={AiIcon} alt="" className="h-6 w-6" />
+                      <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-white">
+                        Powered
+                      </span>
+                    </div>
+                  )}
 
-                <img
-                  src={image}
-                  alt={title}
-                  className={`h-64 w-full max-w-full object-cover object-top transition duration-500 ease-out ${
-                    focused ? "scale-[1.04] max-lg:scale-100" : "scale-100"
-                  }`}
-                />
+                  <img
+                    src={image}
+                    alt={title}
+                    className={`block w-full max-w-full transition duration-500 ease-out max-lg:h-auto max-lg:object-contain max-lg:object-center lg:h-64 lg:object-cover lg:object-top ${
+                      focused ? "scale-[1.04] max-lg:scale-100" : "scale-100"
+                    }`}
+                  />
+                </div>
               </a>
             </div>
           </div>
