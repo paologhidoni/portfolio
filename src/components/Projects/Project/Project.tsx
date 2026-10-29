@@ -128,11 +128,7 @@ const Project: React.FC<Props> = ({
     >
       {/* Content rail inside full-bleed surface */}
       <div
-        className={`relative z-10 mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-10 ${
-          sectionLabel
-            ? "pb-12 pt-10 md:pb-16 md:pt-14 lg:pb-20"
-            : "py-12 md:py-16 lg:py-20"
-        }`}
+        className="relative z-10 mx-auto w-full max-w-7xl px-4 py-12 md:px-6 md:py-16 lg:px-10 lg:py-20"
       >
         {sectionLabel ? (
           <SectionHeading title={sectionLabel} variant="onLight" />

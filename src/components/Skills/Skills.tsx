@@ -99,16 +99,16 @@ const Skills: React.FC<{ theme: Theme }> = ({ theme }) => {
   return (
     <section
       id="skills"
-      className="project-surface relative overflow-hidden pb-12 pt-10 text-ink md:pb-16 md:pt-14"
+      className="project-surface relative overflow-hidden text-ink"
     >
-      {/* Above pattern wash */}
-      <div className="relative z-10">
+      {/* Content rail — same vertical rhythm as Work & Projects */}
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-12 md:px-6 md:py-16 lg:px-10 lg:py-20">
         <SectionHeading title="Skills" variant="onLight" />
 
         <Wrapper
           bgColor="bg-transparent"
           extraClasses="text-ink"
-          paddingX="px-5 md:px-10 lg:px-14"
+          paddingX="px-0 md:px-4 lg:px-4"
           paddingY="py-0"
         >
           {/* Skill groups */}
