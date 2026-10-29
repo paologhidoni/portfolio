@@ -43,7 +43,15 @@ const Hero: React.FC = () => {
             <span className="font-normal">Ghidoni</span>
             {/* Role line */}
             <span className="mt-6 mb-8 block text-xl font-bold leading-snug text-white/95 md:text-xl">
-              Full-stack engineer · Agentic AI · React Native
+              Full-stack engineer
+              <span className="px-2 md:px-2.5" aria-hidden="true">
+                ·
+              </span>
+              Agentic AI
+              <span className="px-2 md:px-2.5" aria-hidden="true">
+                ·
+              </span>
+              React Native
             </span>
           </h1>
 
