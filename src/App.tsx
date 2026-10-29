@@ -13,7 +13,7 @@ function App() {
   return (
     <div
       id="container"
-      className="min-h-screen max-w-full overflow-x-clip bg-surface bg-[radial-gradient(ellipse_120%_80%_at_50%_-20%,rgba(201,169,110,0.1),transparent_55%)] font-quicksand"
+      className="min-h-screen max-w-full overflow-x-clip bg-surface bg-[radial-gradient(ellipse_120%_80%_at_50%_-20%,rgba(226,188,106,0.14),transparent_55%)] font-quicksand"
     >
       <Navigation theme={theme} onToggleTheme={toggleTheme} />
       {/* Text color lives on dark sections, not here */}

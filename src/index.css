@@ -48,7 +48,7 @@
   /* Comma-separated for rgba(var(--x), a) */
   --color-canvas: 13, 27, 42;
   --color-primary: 13, 27, 42;
-  --color-secondary: 201, 169, 110;
+  --color-secondary: 226, 188, 106;
   --color-ink: 13, 27, 42;
   --color-muted: 71, 85, 105;
   --color-surface: 248, 250, 252;
@@ -64,18 +64,19 @@
   --skill-pill-alt-bg: rgba(13, 27, 42, 0.12);
   --skill-pill-color: #0d1b2a;
 
-  --hero-photo-opacity: 0.72;
-  --hero-scrim-base: rgba(13, 27, 42, 0.76);
-  --hero-scrim-mid: rgba(13, 27, 42, 0.68);
-  --hero-scrim-edge: rgba(13, 27, 42, 0.84);
-  --hero-scrim-vignette: rgba(13, 27, 42, 0.48);
+  --hero-photo-opacity: 0.78;
+  --hero-scrim-base: rgba(13, 27, 42, 0.58);
+  --hero-scrim-mid: rgba(13, 27, 42, 0.5);
+  --hero-scrim-edge: rgba(13, 27, 42, 0.66);
+  --hero-scrim-vignette: rgba(13, 27, 42, 0.34);
 }
 
 /* Dark atelier — warm charcoal + bright ivory text */
 [data-theme="dark"] {
   --color-canvas: 14, 12, 10;
   --color-primary: 24, 22, 19;
-  --color-secondary: 201, 169, 110;
+  /* Slightly brighter gold on dark surfaces */
+  --color-secondary: 236, 198, 118;
   --color-ink: 247, 243, 236;
   --color-muted: 180, 174, 165;
   /* Section chrome matches canvas — no bright bands */
