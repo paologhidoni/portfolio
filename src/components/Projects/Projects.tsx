@@ -4,8 +4,8 @@ import { projects } from "../../data/projects";
 
 const WorkAndProjects: React.FC = () => {
   return (
-    <section id="work-projects" className="relative bg-surface pb-12 md:pb-16">
-      {/* Full-bleed cards; last matches Skills top radius */}
+    <section id="work-projects" className="relative bg-surface">
+      {/* Full-bleed cards; flush with Skills below */}
       <ul className="flex flex-col gap-0">
         {projects.map((project, index) => (
           <li key={project.id}>
@@ -19,7 +19,6 @@ const WorkAndProjects: React.FC = () => {
               live={project.live}
               website={project.website}
               aiPowered={project.aiPowered}
-              roundBottom={index === projects.length - 1}
               altSurface={index % 2 === 1}
               sectionLabel={index === 0 ? "Work & Projects" : undefined}
             />

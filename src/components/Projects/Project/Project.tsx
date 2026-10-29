@@ -6,14 +6,13 @@ import SectionHeading from "../../SectionHeading/SectionHeading";
 interface Props {
   id: string;
   title: string;
-  description: string;
+  description: string[];
   image: string;
   technologies: string[];
   github?: string;
   live: string;
   website?: string;
   aiPowered?: boolean;
-  roundBottom?: boolean;
   altSurface?: boolean;
   sectionLabel?: string;
 }
@@ -28,20 +27,19 @@ const Project: React.FC<Props> = ({
   live,
   website,
   aiPowered,
-  roundBottom = false,
   altSurface = false,
   sectionLabel,
 }) => {
   const focusRef = useRef<HTMLDivElement>(null);
   const techRef = useRef<HTMLDivElement>(null);
   const previewRef = useRef<HTMLAnchorElement>(null);
-  // Title/image focus; pills start once that row hits the mid band
+  // Title/image focus; pills when half of tech block is in view
   const [focused, setFocused] = useState(false);
   const [pillsAnimating, setPillsAnimating] = useState(false);
   const pillsPlayedRef = useRef(false);
   const lastScrollYRef = useRef(0);
 
-  // Title/image focus; pills start once that row hits the mid band
+  // Scroll: focus row + pill reveal
   useEffect(() => {
     const focusEl = focusRef.current;
     const techEl = techRef.current;
@@ -67,9 +65,7 @@ const Project: React.FC<Props> = ({
 
       const focusEnterBand =
         viewH * (scrollingUp ? enterBandUpRatio : enterBandDownRatio);
-      const pillsEnterBand = viewH * enterBandDownRatio;
       const exitBand = viewH * exitBandRatio;
-      const pillsFocusDist = Math.abs(rowCenter - viewH * viewMidRatio);
 
       setFocused((prev) => {
         if (focusEnterDist <= focusEnterBand) return true;
@@ -77,13 +73,18 @@ const Project: React.FC<Props> = ({
         return prev;
       });
 
-      if (
-        techEl &&
-        !pillsPlayedRef.current &&
-        pillsFocusDist <= pillsEnterBand
-      ) {
-        pillsPlayedRef.current = true;
-        requestAnimationFrame(() => setPillsAnimating(true));
+      // Half of pill container visible (typical entry from bottom)
+      if (techEl && !pillsPlayedRef.current) {
+        const techRect = techEl.getBoundingClientRect();
+        const visibleTop = Math.max(techRect.top, 0);
+        const visibleBottom = Math.min(techRect.bottom, viewH);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        const halfVisible = visibleHeight >= techRect.height / 2;
+
+        if (halfVisible) {
+          pillsPlayedRef.current = true;
+          requestAnimationFrame(() => setPillsAnimating(true));
+        }
       }
     };
 
@@ -123,10 +124,6 @@ const Project: React.FC<Props> = ({
       id={id}
       className={`project-surface group w-full overflow-x-clip text-ink ${
         altSurface ? "project-surface-alt" : ""
-      } ${
-        roundBottom
-          ? "overflow-hidden rounded-b-[2rem] md:rounded-b-[2.5rem]"
-          : ""
       }`}
     >
       {/* Content rail inside full-bleed surface */}
@@ -156,9 +153,11 @@ const Project: React.FC<Props> = ({
               >
                 {title}
               </h3>
-              <p className="mt-4 text-pretty text-lg font-normal leading-7 text-ink md:text-[17px] md:leading-7">
-                {description}
-              </p>
+              <div className="mt-4 space-y-4 text-pretty text-lg font-normal leading-7 text-ink md:text-[17px] md:leading-7">
+                {description.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
 
               {/* Project links */}
               <div className="mt-auto flex w-full flex-wrap items-center justify-between gap-y-3 pt-8 lg:justify-start lg:gap-x-10">

@@ -99,7 +99,7 @@ const Skills: React.FC<{ theme: Theme }> = ({ theme }) => {
   return (
     <section
       id="skills"
-      className="project-surface relative overflow-hidden rounded-t-[2rem] pb-12 pt-16 text-ink md:rounded-t-[2.5rem] md:pb-16 md:pt-20"
+      className="project-surface relative overflow-hidden pb-12 pt-10 text-ink md:pb-16 md:pt-14"
     >
       {/* Above pattern wash */}
       <div className="relative z-10">
